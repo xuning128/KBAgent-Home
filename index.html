@@ -63,8 +63,17 @@ h1, h2, h3, p { margin-block-start: 0; }
 .masthead h1, .reader h1 { margin: 8px 0 12px; font: 700 clamp(2.15rem, 5.5vw, 4.1rem)/1.15 var(--serif); overflow-wrap: anywhere; }
 .article-category + .article-category { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); }
 .article-category h2 { margin-bottom: 14px; font-size: clamp(1.15rem, 2vw, 1.5rem); }
+.category-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0 12px; }
+.page-size { display: none; margin: 0 0 14px auto; color: var(--muted); font-size: .85rem; }
+.page-size select { min-height: 44px; margin-inline-start: 6px; padding: 0 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--ink); font: inherit; }
+.category-pagination { display: none; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.category-pagination button { min-height: 44px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--ink); }
+.category-pagination button:disabled { opacity: .5; cursor: default; }
 .landing:has(.article-category h2:target) .article-category:not(:has(h2:target)) { display: none; }
 .article-category:has(h2:target) { margin-top: 0; padding-top: 0; border-top: 0; }
+.article-category:has(h2:target) .page-size { display: inline-block; }
+.article-category:has(h2:target) .category-pagination:not([hidden]) { display: flex; }
+.article-category:has(h2:target) .card[data-outside-page] { display: none; }
 .article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 24px; }
 .card { display: flex; flex-direction: column; min-width: 0; }
 .cover { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 12px; }
@@ -125,7 +134,9 @@ main:has(.reader:target) .landing { display: none; }
 }
 @media print {
   body, .shell { width: 100%; margin: 0; padding: 0; border: 0; background: white; }
-  .top, footer, .read, .back, .view-slides { display: none; }
+  .top, footer, .read, .back, .view-slides,
+  .article-category:has(h2:target) .page-size,
+  .article-category:has(h2:target) .category-pagination:not([hidden]) { display: none; }
   .card { break-inside: avoid; }
 }
 </style>
@@ -1548,16 +1559,78 @@ main:has(.reader:target) .landing { display: none; }
   <span><span lang="zh-Hant">內科與營養學閱讀知識庫</span><span lang="en">Internal Medicine and Nutrition Knowledge Base</span> · 2026</span>
 </footer>
 </div>
+<template id="category-page-controls">
+  <label class="page-size">
+    <span lang="zh-Hant">每頁卡片數</span><span lang="en">Cards per page</span>
+    <select>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+    </select>
+  </label>
+  <div class="category-pagination" hidden>
+    <button type="button" data-page-step="-1"><span lang="zh-Hant">上一頁</span><span lang="en">Previous</span></button>
+    <span class="page-status" aria-live="polite"></span>
+    <button type="button" data-page-step="1"><span lang="zh-Hant">下一頁</span><span lang="en">Next</span></button>
+  </div>
+</template>
 <script>
 const categoryNav = document.querySelector('.category-nav');
 const navigationLinks = categoryNav.querySelectorAll('a');
+const pageControls = document.getElementById('category-page-controls');
+const revealCardByCategory = new Map();
 for (const link of categoryNav.querySelectorAll('a[href^="#category-"]')) {
   const heading = document.getElementById(link.hash.slice(1));
-  const articleLinks = heading.closest('.article-category').querySelectorAll('.read');
-  for (const articleLink of articleLinks) {
+  const category = heading.closest('.article-category');
+  const cards = [...category.querySelectorAll('.article-grid > .card')];
+  for (const articleLink of category.querySelectorAll('.read')) {
     const reader = document.getElementById(articleLink.hash.slice(1));
     reader.querySelector('.back').href = link.hash;
   }
+
+  const controls = pageControls.content.cloneNode(true);
+  const size = controls.querySelector('select');
+  const pagination = controls.querySelector('.category-pagination');
+  const status = pagination.querySelector('.page-status');
+  const previous = pagination.querySelector('[data-page-step="-1"]');
+  const next = pagination.querySelector('[data-page-step="1"]');
+  const headingRow = document.createElement('div');
+  headingRow.className = 'category-heading';
+  heading.before(headingRow);
+  headingRow.append(heading, controls.querySelector('.page-size'));
+  category.append(pagination);
+
+  let page = 0;
+  function showPage() {
+    const pageSize = Number(size.value);
+    const pageCount = Math.max(1, Math.ceil(cards.length / pageSize));
+    page = Math.max(0, Math.min(page, pageCount - 1));
+    cards.forEach((card, index) => {
+      card.toggleAttribute('data-outside-page', Math.floor(index / pageSize) !== page);
+    });
+    status.textContent = `${page + 1} / ${pageCount}`;
+    pagination.hidden = pageCount === 1;
+    previous.disabled = page === 0;
+    next.disabled = page === pageCount - 1;
+  }
+
+  size.addEventListener('change', () => {
+    page = 0;
+    showPage();
+  });
+  for (const button of [previous, next]) {
+    button.addEventListener('click', () => {
+      page += Number(button.dataset.pageStep);
+      showPage();
+      heading.focus();
+    });
+  }
+  revealCardByCategory.set(heading, articleLink => {
+    const index = cards.indexOf(articleLink.closest('.card'));
+    page = Math.floor(index / Number(size.value));
+    showPage();
+  });
+  showPage();
 }
 
 const languageButtons = document.querySelectorAll('.languages button');
@@ -1590,7 +1663,8 @@ function focusCurrentView() {
   } else {
     if (location.hash === '#articles') {
       document.getElementById('articles').focus();
-    } else if (lastRead && (!category || category.parentElement.contains(lastRead))) {
+    } else if (lastRead && (!category || category.closest('.article-category').contains(lastRead))) {
+      if (category) revealCardByCategory.get(category)(lastRead);
       lastRead.focus();
     } else if (category) {
       category.focus();
