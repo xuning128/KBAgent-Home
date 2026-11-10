@@ -1,0 +1,1605 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="內科與營養學閱讀知識庫收錄醫學研究與健康文章的繁體中文及英文整理筆記">
+<title>內科與營養學閱讀知識庫｜2026.11.10</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #fffdfa;
+  --canvas: #f1e8de;
+  --ink: #282622;
+  --muted: #635b52;
+  --accent: #923f27;
+  --line: #e9dfd5;
+  --serif: Georgia, "Songti TC", "Noto Serif TC", serif;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--canvas); line-height: 1.65; }
+a { color: inherit; text-underline-offset: .24em; }
+button, summary { font: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid #26717c; outline-offset: 4px; }
+body[data-language="zh"] [lang="en"], body[data-language="en"] [lang="zh-Hant"] { display: none; }
+.shell {
+  width: min(1240px, calc(100% - 64px));
+  margin: 32px auto;
+  padding: 0 clamp(24px, 5vw, 72px);
+  border: 1px solid #fff;
+  border-radius: 32px;
+  background: var(--paper);
+}
+.top, footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.top { padding: 21px 0; border-bottom: 1px solid var(--line); }
+.brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 750; text-decoration: none; }
+.brand-icon { width: 35px; height: 35px; padding: 7px; color: white; background: var(--accent); border-radius: 50%; }
+.category-nav { display: flex; flex-wrap: wrap; gap: 4px; }
+.category-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: .45em;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 24px;
+  color: var(--muted);
+  font-size: .9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.category-nav a:hover, .category-nav a[aria-current] { background: #f2e5db; color: var(--accent); }
+.languages { display: flex; padding: 3px; border: 1px solid var(--line); border-radius: 30px; }
+.languages button { min-height: 44px; padding: 0 14px; border: 0; border-radius: 24px; background: transparent; color: var(--muted); font-size: .84rem; }
+.languages button[aria-pressed="true"] { background: var(--ink); color: white; }
+.masthead { padding: clamp(24px, 4vw, 54px) 0 26px; }
+h1, h2, h3, p { margin-block-start: 0; }
+.masthead h1, .reader h1 { margin: 8px 0 12px; font: 700 clamp(2.15rem, 5.5vw, 4.1rem)/1.15 var(--serif); overflow-wrap: anywhere; }
+.article-category + .article-category { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); }
+.article-category h2 { margin-bottom: 14px; font-size: clamp(1.15rem, 2vw, 1.5rem); }
+.landing:has(.article-category h2:target) .article-category:not(:has(h2:target)) { display: none; }
+.article-category:has(h2:target) { margin-top: 0; padding-top: 0; border-top: 0; }
+.article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 24px; }
+.card { display: flex; flex-direction: column; min-width: 0; }
+.cover { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 12px; }
+.cover svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cover.fitbit {
+  background: radial-gradient(ellipse at 68% 22%, #c17b54, transparent 55%), linear-gradient(130deg, #332424, #764b41 70%, #ac6545);
+  color: #f5c4a5;
+}
+.cover.faceage { background: #f1d8c9; color: #703b35; }
+.cover.blood-pressure { background: #dce8e5; color: #325c59; }
+.cover.blood-sugar { background: #f0e2c5; color: #805319; }
+.card-copy { display: flex; flex: 1; flex-direction: column; min-width: 0; padding-top: 12px; }
+.card .tag { align-self: flex-start; }
+.tag {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .48em;
+  padding: 3px 8px;
+  border-radius: 20px;
+  color: #793d29;
+  background: #f2e5db;
+  font-size: .72rem;
+  font-weight: 700;
+}
+.tag::before { content: ""; flex: 0 0 .48em; height: .48em; align-self: center; border-radius: 50%; background: var(--accent); }
+.card h3 { margin: 6px 0 4px; line-height: 1.35; font-size: 1.04rem; }
+.card p { margin-bottom: 0; color: var(--muted); font-size: .83rem; }
+.card-bottom { display: flex; flex-direction: column; align-items: flex-start; margin-top: auto; padding-top: 8px; color: var(--muted); font-size: .76rem; }
+.read, .back { display: inline-flex; align-items: center; gap: .45em; min-height: 44px; color: var(--accent); font-weight: 750; }
+.read:hover, .back:hover { color: #5d2616; }
+footer { margin-top: 36px; padding: 18px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
+.reader { display: none; width: min(100%, 74ch); margin-inline: auto; padding-top: 22px; }
+.reader:target { display: block; }
+main:has(.reader:target) .landing { display: none; }
+.reader-head { margin-top: 22px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.reader h1 { font-size: clamp(1.95rem, 4.2vw, 3.4rem); }
+.reader-head p { margin-bottom: 0; color: var(--muted); }
+.note { font-size: 1rem; line-height: 1.85; overflow-wrap: anywhere; }
+.note h2 { margin: 24px 0 6px; font-size: 1.12rem; }
+.note ul { padding-inline-start: 1.4em; }
+.note li + li { margin-top: .55em; }
+.discussion-topic ul { margin-block: 8px 12px; }
+.discussion-topic p { margin: 2px 0 0; }
+.note a { color: var(--accent); }
+.downloads { display: flex; flex-wrap: wrap; gap: 4px 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+.downloads a { display: inline-flex; align-items: center; min-height: 44px; }
+.view-slides { margin-top: 22px; }
+.view-slides a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 24px; background: var(--accent); color: white; font-weight: 750; text-decoration: none; }
+.view-slides a:hover { background: #70301d; }
+@media (max-width: 820px) {
+  .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .shell { width: calc(100% - 24px); margin: 12px auto; padding-inline: 14px; border-radius: 20px; }
+  .top { padding-block: 13px; }
+  .masthead { padding-block: 24px; }
+  .article-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media print {
+  body, .shell { width: 100%; margin: 0; padding: 0; border: 0; background: white; }
+  .top, footer, .read, .back, .view-slides { display: none; }
+  .card { break-inside: avoid; }
+}
+</style>
+</head>
+<body data-language="zh">
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="art-fitbit" viewBox="0 0 320 160">
+    <g fill="none" stroke="currentColor">
+      <circle cx="179" cy="80" r="71" opacity=".34"/><circle cx="179" cy="80" r="59" opacity=".25"/>
+      <path d="M0 90h44l10-13 9 26 13-39 11 26h42m99 0h32l11-17 7 28 9-11h33" opacity=".65"/>
+    </g>
+    <g transform="rotate(-18 179 80)">
+      <rect x="159" y="-6" width="40" height="172" rx="18" fill="#251b1a" stroke="currentColor"/>
+      <rect x="143" y="43" width="72" height="74" rx="20" fill="#d3906d"/>
+      <rect x="147" y="47" width="64" height="66" rx="17" fill="#261e20"/>
+      <path d="M153 83h10l5-8 6 18 8-28 7 18h14" fill="none" stroke="#b8f2e6" stroke-width="2" stroke-linejoin="round"/>
+    </g>
+  </symbol>
+  <symbol id="art-faceage" viewBox="0 0 320 160">
+    <circle cx="160" cy="80" r="65" fill="currentColor" opacity=".11"/>
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+      <path d="M108 58V35h23m58 0h23v23m0 44v23h-23m-58 0h-23v-23"/>
+      <path d="M160 43c-20 0-31 14-31 33 0 24 13 39 31 42 18-3 31-18 31-42 0-19-11-33-31-33Z"/>
+      <path d="M142 75h8m20 0h8m-17-2-4 16h6m-12 10q9 5 18 0"/>
+    </g>
+  </symbol>
+  <symbol id="art-blood-pressure" viewBox="0 0 320 160">
+    <circle cx="160" cy="80" r="65" fill="currentColor" opacity=".11"/>
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+      <rect x="127" y="39" width="66" height="75" rx="11"/>
+      <rect x="137" y="49" width="46" height="37" rx="5"/>
+      <path d="M143 68h7l6-9 7 17 6-8h8m-17 46v13c0 11 28 11 28 0"/>
+      <circle cx="160" cy="99" r="3"/>
+    </g>
+  </symbol>
+  <symbol id="art-blood-sugar" viewBox="0 0 320 160">
+    <circle cx="160" cy="80" r="65" fill="currentColor" opacity=".11"/>
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M160 36c-6 14-31 39-31 57a31 31 0 0 0 62 0c0-18-25-43-31-57Z"/>
+      <path d="M145 95h8l5-8 6 16 5-8h7"/>
+    </g>
+  </symbol>
+  <symbol id="art-reflux-monitoring" viewBox="0 0 320 160">
+    <circle cx="160" cy="80" r="65" fill="currentColor" opacity=".11"/>
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M150 34v28c0 8-5 14-12 18-16 9-23 20-19 34 4 15 20 22 42 19 26-4 43-22 43-45 0-15-12-25-25-24-8 1-13 6-16 12V34"/><path d="m144 98 9-9 9 9m-9-9v25"/></g>
+  </symbol>
+  <symbol id="art-constipation-fiber" viewBox="0 0 320 160">
+    <circle cx="160" cy="80" r="65" fill="currentColor" opacity=".11"/>
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M124 89h72c-3 24-16 37-36 37s-33-13-36-37Zm16-13c-2-20 9-34 29-38 0 19-10 33-29 38Zm20-5c12-13 24-16 38-9-6 15-17 22-34 21"/></g>
+  </symbol>
+  <symbol id="art-gout-diet" viewBox="0 0 320 160">
+    <circle cx="160" cy="80" r="65" fill="currentColor" opacity=".11"/>
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M138 36v37l-11 34a10 10 0 0 0 19 7l13-30m3-48v30l32 27a11 11 0 0 1-13 17l-27-22"/>
+      <path d="m151 66 19 22m-10-30 7 18m-22 1 13 10"/>
+    </g>
+  </symbol>
+  <symbol id="art-calcium-supplements" viewBox="0 0 320 160">
+    <circle cx="160" cy="80" r="65" fill="currentColor" opacity=".11"/>
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M125 53h35l10 17v51h-45V53Zm0 0 11-14h25l-1 14m-35 17h45m-10-17v17"/>
+      <rect x="179" y="83" width="29" height="38" rx="13"/><path d="M179 102h29"/>
+    </g>
+  </symbol>
+  <symbol id="art-anemia-causes" viewBox="0 0 320 160">
+    <circle cx="160" cy="80" r="65" fill="currentColor" opacity=".11"/>
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M159 38c-9 17-29 39-29 56a29 29 0 0 0 58 0c0-17-20-39-29-56Z"/>
+      <ellipse cx="153" cy="97" rx="10" ry="6"/><ellipse cx="171" cy="86" rx="7" ry="4"/>
+    </g>
+  </symbol>
+  <symbol id="art-dietary-iron" viewBox="0 0 320 160">
+    <circle cx="160" cy="80" r="65" fill="currentColor" opacity=".11"/>
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M126 89h68c-4 24-17 38-34 38s-30-14-34-38Z"/>
+      <path d="M161 86c-12-6-17-23-12-41 18 6 25 23 12 41Zm2-1c5-18 17-26 32-27-2 16-14 26-32 27Z"/>
+    </g>
+  </symbol>
+</svg>
+<div class="shell">
+<header class="top">
+  <a class="brand" href="#articles">
+    <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h5l3-7 4 14 3-7h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+    <span lang="zh-Hant">內科與營養學閱讀知識庫</span><span lang="en">Internal Medicine and Nutrition Knowledge Base</span>
+  </a>
+  <nav class="category-nav" aria-label="主要導覽">
+    <a href="#articles"><span lang="zh-Hant">首頁</span><span lang="en">Home</span></a>
+    <a href="#category-internal-medicine"><span lang="zh-Hant">內科</span><span lang="en">Internal Medicine</span></a>
+    <a href="#category-nutrition"><span lang="zh-Hant">營養學</span><span lang="en">Nutrition</span></a>
+  </nav>
+  <div class="languages">
+    <button id="zh" type="button" aria-pressed="true">繁中</button>
+    <button id="en" type="button" aria-pressed="false">English</button>
+  </div>
+</header>
+<main>
+<div class="landing">
+  <div class="masthead" id="articles" tabindex="-1">
+    <h1><span lang="zh-Hant">內科與營養學閱讀知識庫</span><span lang="en">Internal Medicine and Nutrition Knowledge Base</span></h1>
+  </div>
+  <section class="article-category" aria-labelledby="category-internal-medicine">
+    <h2 id="category-internal-medicine" tabindex="-1"><span lang="zh-Hant">內科</span><span lang="en">Internal Medicine</span></h2>
+    <div class="article-grid">
+      <article class="card">
+        <div class="cover fitbit" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-fitbit"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">心臟內科</span><span lang="en">Cardiology</span></span>
+          <h3 id="card-fitbit"><span lang="zh-Hant">穿戴裝置如何辨識心房顫動</span><span lang="en">How wearables detect atrial fibrillation</span></h3>
+          <p><span lang="zh-Hant">從光學脈搏到心電圖，追蹤 Fitbit Heart Study 如何驗證手腕上的心律通知<br></span><span lang="en">Follow the Fitbit Heart Study from optical pulse signals to ECG confirmation.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">研究論文</span><span lang="en">Research paper</span></span>
+            <a class="read" href="#fitbit" aria-labelledby="read-fitbit card-fitbit"><span id="read-fitbit">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover blood-pressure" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-blood-pressure"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">心臟內科</span><span lang="en">Cardiology</span></span>
+          <h3 id="card-blood-pressure"><span lang="zh-Hant">居家量血壓與年輕族群的隱藏風險</span><span lang="en">Home blood pressure and risk in younger adults</span></h3>
+          <p><span lang="zh-Hant">整理居家量血壓的 722 原則與常見測量干擾<br></span><span lang="en">A guide to the 722 measurement schedule and common sources of error.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span></span>
+            <a class="read" href="#blood-pressure" aria-labelledby="read-blood-pressure card-blood-pressure"><span id="read-blood-pressure">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover blood-sugar" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-blood-sugar"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">心臟內科</span><span lang="en">Cardiology</span></span>
+          <h3 id="card-lipid-panel"><span lang="zh-Hant">血脂檢驗的四個指標</span><span lang="en">Four measures in a lipid panel</span></h3>
+          <p><span lang="zh-Hant">血脂報告通常包含總膽固醇、LDL-C、HDL-C 和三酸甘油酯，抽血是否要空腹則依檢驗目的而定<br></span><span lang="en">A standard lipid panel includes total cholesterol, LDL-C, HDL-C and triglycerides. The reason for testing helps determine whether fasting is needed.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span></span>
+            <a class="read" href="#lipid-panel" aria-labelledby="read-lipid-panel card-lipid-panel"><span id="read-lipid-panel">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover faceage" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-faceage"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">腫瘤內科與老年醫學</span><span lang="en">Oncology and geriatrics</span></span>
+          <h3 id="card-faceage"><span lang="zh-Hant">FaceAge 臉部年齡與癌症預後</span><span lang="en">FaceAge and cancer prognosis</span></h3>
+          <p><span lang="zh-Hant">從研究附錄看臉部年齡估計與癌症存活的關聯<br></span><span lang="en">The study appendix examines how estimated facial age relates to cancer survival.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">研究附錄</span><span lang="en">Research appendix</span></span>
+            <a class="read" href="#faceage" aria-labelledby="read-faceage card-faceage"><span id="read-faceage">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover blood-sugar" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-blood-sugar"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">內分泌新陳代謝科</span><span lang="en">Endocrinology</span></span>
+          <h3 id="card-blood-sugar"><span lang="zh-Hant">辨識高血糖與低血糖</span><span lang="en">Recognizing high and low blood sugar</span></h3>
+          <p><span lang="zh-Hant">整理高低血糖的常見症狀、用藥與生活因素<br></span><span lang="en">Common signs of glucose changes and the role of medicines and daily habits.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span></span>
+            <a class="read" href="#blood-sugar" aria-labelledby="read-blood-sugar card-blood-sugar"><span id="read-blood-sugar">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover blood-pressure" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-blood-pressure"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">腎臟內科</span><span lang="en">Nephrology</span></span>
+          <h3 id="card-kidney-screening"><span lang="zh-Hant">慢性腎病篩檢的兩項指標</span><span lang="en">Two tests for chronic kidney disease screening</span></h3>
+          <p><span lang="zh-Hant">抽血估計腎臟過濾能力，驗尿找腎損傷線索<br>兩項檢查合看更能辨識風險<br></span><span lang="en">Blood tests estimate filtration and urine tests look for signs of kidney damage. The two results help assess risk together.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span></span>
+            <a class="read" href="#kidney-screening" aria-labelledby="read-kidney-screening card-kidney-screening"><span id="read-kidney-screening">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover blood-pressure" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-reflux-monitoring"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">胃腸肝膽科</span><span lang="en">Gastroenterology</span></span>
+          <h3 id="card-reflux-monitoring"><span lang="zh-Hant">胃食道逆流的酸鹼值監測</span><span lang="en">Esophageal pH monitoring for reflux</span></h3>
+          <p><span lang="zh-Hant">胃鏡觀察食道黏膜，動態監測記錄食道酸暴露與症狀時間<br>兩種檢查回答不同的問題<br></span><span lang="en">Endoscopy examines the esophageal lining. Ambulatory monitoring records acid exposure and the timing of symptoms.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span></span>
+            <a class="read" href="#reflux-monitoring" aria-labelledby="read-reflux-monitoring card-reflux-monitoring"><span id="read-reflux-monitoring">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover blood-pressure" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-gout-diet"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">風濕免疫科</span><span lang="en">Rheumatology</span></span>
+          <h3 id="card-gout-diet"><span lang="zh-Hant">高尿酸與痛風的飲食重點</span><span lang="en">Diet and the distinction between high urate and gout</span></h3>
+          <p><span lang="zh-Hant">尿酸偏高可能沒有症狀<br>這份筆記整理尿酸數值、痛風發作與飲食調整的關係<br></span><span lang="en">High urate can occur without symptoms. These notes distinguish the lab result, gout flares and the role of diet.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span></span>
+            <a class="read" href="#gout-diet" aria-labelledby="read-gout-diet card-gout-diet"><span id="read-gout-diet">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover blood-pressure" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-anemia-causes"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">血液內科</span><span lang="en">Hematology</span></span>
+          <h3 id="card-anemia-causes"><span lang="zh-Hant">貧血的原因與血液檢驗</span><span lang="en">Causes of anemia and blood tests</span></h3>
+          <p><span lang="zh-Hant">疲倦與易喘可能出現在貧血<br>血液檢驗可確認血紅素是否偏低，後續則需釐清成因<br></span><span lang="en">Fatigue and shortness of breath can occur with anemia. Blood tests identify low hemoglobin and help guide the search for its cause.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span></span>
+            <a class="read" href="#anemia-causes" aria-labelledby="read-anemia-causes card-anemia-causes"><span id="read-anemia-causes">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover blood-sugar" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-blood-sugar"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">內分泌新陳代謝科</span><span lang="en">Endocrinology</span></span>
+          <h3 id="card-a1c-diabetes"><span lang="zh-Hant">糖化血色素與糖尿病診斷</span><span lang="en">A1C and diabetes diagnosis</span></h3>
+          <p><span lang="zh-Hant">糖化血色素反映約三個月的平均血糖<br>筆記整理診斷門檻、複檢和檢驗限制<br></span><span lang="en">A1C reflects average glucose over roughly three months. These notes cover diagnostic thresholds, confirmation and test limitations.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span></span>
+            <a class="read" href="#a1c-diabetes" aria-labelledby="read-a1c-diabetes card-a1c-diabetes"><span id="read-a1c-diabetes">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover blood-pressure" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-blood-pressure"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">胃腸肝膽科</span><span lang="en">Gastroenterology</span></span>
+          <h3 id="card-fatty-liver-diagnosis"><span lang="zh-Hant">脂肪肝檢查與纖維化評估</span><span lang="en">Fatty liver testing and fibrosis assessment</span></h3>
+          <p><span lang="zh-Hant">超音波可發現肝內脂肪堆積<br>進一步評估時，肝纖維化風險要用其他工具判讀<br></span><span lang="en">Ultrasound can reveal fat in the liver. Fibrosis risk is assessed with additional tools.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span></span>
+            <a class="read" href="#fatty-liver-diagnosis" aria-labelledby="read-fatty-liver-diagnosis card-fatty-liver-diagnosis"><span id="read-fatty-liver-diagnosis">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover fitbit" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-fitbit"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">胸腔內科與睡眠醫學</span><span lang="en">Pulmonology and sleep medicine</span></span>
+          <h3 id="card-obstructive-sleep-apnea"><span lang="zh-Hant">阻塞性睡眠呼吸中止症的檢查與追蹤</span><span lang="en">Testing and follow-up for obstructive sleep apnea</span></h3>
+          <p><span lang="zh-Hant">睡眠時呼吸道反覆阻塞，可能造成夜間喘醒和白天嗜睡<br>睡眠檢查可確認呼吸事件<br></span><span lang="en">Repeated airway obstruction during sleep can cause gasping and daytime sleepiness. Sleep testing documents breathing events.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span></span>
+            <a class="read" href="#obstructive-sleep-apnea" aria-labelledby="read-obstructive-sleep-apnea card-obstructive-sleep-apnea"><span id="read-obstructive-sleep-apnea">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover blood-pressure" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-blood-pressure"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">內分泌新陳代謝科</span><span lang="en">Endocrinology</span></span>
+          <h3 id="card-hyperthyroidism"><span lang="zh-Hant">甲狀腺機能亢進的診斷與追蹤</span><span lang="en">Diagnosis and follow-up of hyperthyroidism</span></h3>
+          <p><span lang="zh-Hant">心悸、手抖和體重下降可見於甲狀腺機能亢進<br>抽血確認荷爾蒙變化後，再追查病因<br></span><span lang="en">Palpitations, tremor and weight loss can occur in hyperthyroidism. Blood tests establish the hormone pattern and guide investigation of the cause.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span></span>
+            <a class="read" href="#hyperthyroidism" aria-labelledby="read-hyperthyroidism card-hyperthyroidism"><span id="read-hyperthyroidism">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="article-category" aria-labelledby="category-nutrition">
+    <h2 id="category-nutrition" tabindex="-1"><span lang="zh-Hant">營養學</span><span lang="en">Nutrition</span></h2>
+    <div class="article-grid">
+      <article class="card">
+        <div class="cover blood-sugar" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-constipation-fiber"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">營養學</span><span lang="en">Nutrition</span></span>
+          <h3 id="card-constipation-fiber"><span lang="zh-Hant">便祕與膳食纖維</span><span lang="en">Dietary fiber and constipation</span></h3>
+          <p><span lang="zh-Hant">便祕可表現為糞便硬、排便費力或排不乾淨<br>筆記整理纖維來源，以及逐步增加攝取時如何搭配水分<br></span><span lang="en">Constipation can involve hard stools, straining or incomplete emptying. These notes cover fiber sources and hydration when increasing intake.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span></span>
+            <a class="read" href="#constipation-fiber" aria-labelledby="read-constipation-fiber card-constipation-fiber"><span id="read-constipation-fiber">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover blood-sugar" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-calcium-supplements"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">營養學</span><span lang="en">Nutrition</span></span>
+          <h3 id="card-calcium-supplements"><span lang="zh-Hant">鈣質來源與補充品標示</span><span lang="en">Calcium sources and supplement labels</span></h3>
+          <p><span lang="zh-Hant">估算每日鈣質攝取時，食物與補充品都要計入<br>比較補充品時可看每份的元素鈣<br></span><span lang="en">Calcium intake includes both food and supplements. Elemental calcium per serving is the useful figure when comparing products.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span></span>
+            <a class="read" href="#calcium-supplements" aria-labelledby="read-calcium-supplements card-calcium-supplements"><span id="read-calcium-supplements">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover blood-sugar" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-dietary-iron"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">營養學</span><span lang="en">Nutrition</span></span>
+          <h3 id="card-dietary-iron"><span lang="zh-Hant">膳食鐵的來源與吸收</span><span lang="en">Sources and absorption of dietary iron</span></h3>
+          <p><span lang="zh-Hant">食物中的鐵可分為血基質鐵與非血基質鐵<br>比較食物時，可以同時看含量、實際食用份量與餐食搭配<br></span><span lang="en">Foods provide heme and nonheme iron. Compare iron content, usual serving sizes and what else is eaten at the meal.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span></span>
+            <a class="read" href="#dietary-iron" aria-labelledby="read-dietary-iron card-dietary-iron"><span id="read-dietary-iron">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover dietary-iron" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-dietary-iron"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">營養學</span><span lang="en">Nutrition</span></span>
+          <h3 id="card-vitamin-b12-nutrition"><span lang="zh-Hant">素食飲食中的維生素 B12</span><span lang="en">Vitamin B12 in vegetarian diets</span></h3>
+          <p><span lang="zh-Hant">規劃素食飲食時，要確認維生素 B12 的來源<br>若出現疑似缺乏症狀，也要評估吸收問題<br></span><span lang="en">Vegetarian meal planning includes identifying reliable vitamin B12 sources. Suspected deficiency also warrants consideration of absorption problems.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span></span>
+            <a class="read" href="#vitamin-b12-nutrition" aria-labelledby="read-vitamin-b12-nutrition card-vitamin-b12-nutrition"><span id="read-vitamin-b12-nutrition">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover calcium-supplements" aria-hidden="true"><svg viewBox="0 0 320 160"><use href="#art-calcium-supplements"/></svg></div>
+        <div class="card-copy">
+          <span class="tag"><span lang="zh-Hant">營養學</span><span lang="en">Nutrition</span></span>
+          <h3 id="card-bone-nutrition-menopause"><span lang="zh-Hant">更年期骨骼健康的鈣與維生素 D</span><span lang="en">Calcium and vitamin D for bone health after menopause</span></h3>
+          <p><span lang="zh-Hant">鈣與維生素 D 都與骨骼健康有關<br>整理日常食物來源，以及何時需要評估骨密度與骨折風險<br></span><span lang="en">Calcium and vitamin D support bone health. These notes cover dietary sources and assessment of bone density and fracture risk.</span></p>
+          <div class="card-bottom">
+            <span><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span></span>
+            <a class="read" href="#bone-nutrition-menopause" aria-labelledby="read-bone-nutrition-menopause card-bone-nutrition-menopause"><span id="read-bone-nutrition-menopause">Read</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+<article class="reader" id="fitbit" aria-labelledby="title-fitbit">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">心臟內科</span><span lang="en">Cardiology</span></span>
+    <h1 id="title-fitbit" tabindex="-1"><span lang="zh-Hant">穿戴裝置如何辨識心房顫動</span><span lang="en">How wearables detect atrial fibrillation</span></h1>
+    <p><span lang="zh-Hant">研究論文</span><span lang="en">Research paper</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+<section lang="zh-Hant">
+<h2>科別與標題</h2>
+<p>心臟內科｜Detection of Atrial Fibrillation in a Large Population Using Wearable Devices: The Fitbit Heart Study<br>前瞻性、單臂、遠距研究<br>2020年收案，2022年發表<br></p>
+<h2>常見疾病與影響族群</h2>
+<p>心房顫動（AF）、心房撲動<br>相關臨床問題包含中風與心衰竭<br>研究納入美國年滿22歲、持有相容 Fitbit 與智慧型手機、自述未診斷 AF 的成人<br>中位年齡47歲，女性71%，白人73%<br></p>
+<h2>疾病如何診斷</h2>
+<p>心房顫動須由醫師判讀心電圖（ECG）確認，可使用十二導程心電圖或可判讀的心電監測紀錄<br>穿戴裝置的光學脈搏（PPG）通知可提示進一步檢查，Fitbit Heart Study 以心電圖貼片追蹤確認<br><a href="https://www.ahajournals.org/doi/abs/10.1161/CIR.0000000000001193" target="_blank" rel="noopener">ACC／AHA 心房顫動指引 ↗</a></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>確診心房顫動後通常需要長期追蹤症狀、中風與出血風險，以及用藥是否合適<br>只有手錶通知時，先由醫師評估是否要用心電圖確認<br><a href="https://www.ahajournals.org/doi/abs/10.1161/CIR.0000000000001193" target="_blank" rel="noopener">ACC／AHA 心房顫動指引 ↗</a></p></div>
+<h2>本週篇文章重點</h2>
+<ul>
+<li>規模與通知：455,699人中，4,728人收到不規則心律通知（約1.0%）<br>風險觀察時間中位數122天<br>通知率不等於 AF 盛行率<br></li>
+<li>演算法門檻：PPG 每2.5分鐘產生一段5分鐘脈搏資料，連續11段不規則才觸發 IHRD，等於至少30分鐘<br>只分析靜止時段，可能漏掉短暫或活動時發作<br></li>
+<li>兩個分母：通知後可分析的1,057份 ECG 貼片中，340份發現 AF（32.2%）<br>貼片監測時再出現 IHRD 且可判讀的225人中，221人同時有 AF，PPV 為98.2%（95% CI 95.5–99.5%）<br></li>
+<li>研究限制：探索性貼片分析的敏感度67.6%、特異度98.4%，適用該已篩選樣本<br>研究有追蹤流失，且 Fitbit 出資並參與<br>尚未證明此篩檢降低中風或死亡<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>AF：atrial fibrillation<br>PPG：photoplethysmography<br>IHRD：irregular heart rhythm detection<br>ECG：electrocardiogram<br>PPV：positive predictive value<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>消費型穿戴裝置把心律偵測帶入日常，需理解通知後的確認流程<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>98.2% 不能解讀為所有使用者的診斷準確率<br>沒有通知也不能排除 AF<br>最佳後續監測時間與臨床效益仍待確認<br></p></li></ul></div>
+<h2>來源與定位</h2>
+<p>本地 PDF 共10頁<br>摘要與方法見PDF第1–3頁，主要數據第5頁，限制與探索性分析第9頁<br>原始標題與 DOI 見來源<br></p></section>
+<section lang="en">
+<h2>Scope and population</h2>
+<p>Cardiology. This prospective single-arm remote study enrolled US Fitbit users aged at least 22 years without self-reported AF. There were 455,699 participants; median age was 47, 71% were female and 73% were White. Relevant diseases include AF and atrial flutter, with stroke and heart failure as related concerns.</p>
+<h2>Diagnosis</h2>
+<p>A clinician confirms atrial fibrillation by reviewing an ECG tracing, such as a 12-lead ECG or an interpretable ambulatory ECG recording. An optical pulse (PPG) alert can prompt testing. The Fitbit Heart Study used ECG patches for follow-up.<br><a href="https://www.ahajournals.org/doi/abs/10.1161/CIR.0000000000001193" target="_blank" rel="noopener">ACC/AHA atrial fibrillation guideline ↗</a></p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Confirmed atrial fibrillation usually calls for ongoing review of symptoms, stroke and bleeding risk, and medication. A wearable alert calls for assessment of whether ECG confirmation is needed.<br><a href="https://www.ahajournals.org/doi/abs/10.1161/CIR.0000000000001193" target="_blank" rel="noopener">ACC/AHA atrial fibrillation guideline ↗</a></p></div>
+<h2>Key findings</h2>
+<ul>
+<li>Notifications occurred in 4,728 participants (about 1.0%) over a median 122 days at risk. Notification frequency is not AF prevalence.</li>
+<li>The PPG algorithm required 11 consecutive overlapping five-minute irregular tachograms, representing at least 30 minutes, during inactivity. Short or active episodes may be missed.</li>
+<li>AF was found in 340 of 1,057 subsequent analyzable ECG patches (32.2%). Concurrent AF occurred in 221 of 225 evaluable participants with another IHRD during ECG monitoring: PPV 98.2% (95% CI 95.5–99.5%). These denominators answer different questions.</li>
+<li>Exploratory sensitivity was 67.6% and specificity 98.4% in the selected patch sample. Attrition, population selection and Fitbit funding limit interpretation; stroke and mortality benefits were not established.</li></ul>
+<h2>Keywords</h2>
+<p>AF, PPG, IHRD, ECG, PPV: atrial fibrillation, photoplethysmography, irregular heart rhythm detection, electrocardiogram, positive predictive value.</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>wearable notifications require a clinical confirmation pathway.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>a high conditional PPV is not population-wide accuracy, and no notification does not rule out AF. Optimal follow-up and clinical benefit remain uncertain.</p></li></ul></div>
+<h2>Source</h2>
+<p>Local PDF: 10 pages; methods pp. 1–3, results p. 5, limitations p. 9.</p></section>
+<p class="downloads"><a href="https://doi.org/10.1161/CIRCULATIONAHA.122.060291" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a></p></div>
+  <p class="view-slides">
+    <a href="slides.html#fitbit" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#fitbit" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="faceage" aria-labelledby="title-faceage">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">腫瘤內科與老年醫學</span><span lang="en">Oncology and geriatrics</span></span>
+    <h1 id="title-faceage" tabindex="-1"><span lang="zh-Hant">FaceAge 臉部年齡與癌症預後</span><span lang="en">FaceAge and cancer prognosis</span></h1>
+    <p><span lang="zh-Hant">研究附錄</span><span lang="en">Research appendix</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+<section lang="zh-Hant">
+<h2>科別與標題</h2>
+<p>腫瘤內科與老年醫學｜FaceAge 補充附錄<br>研究以臉部照片估計年齡，探索其與癌症整體存活的關聯<br>本次閱讀限於36頁附錄，主論文未包含於本地檔案<br></p>
+<h2>常見疾病與影響族群</h2>
+<p>乳癌、大腸直腸癌、攝護腺癌、肺癌、頭頸癌等<br>三個回溯性癌症隊列共6,196人：MAASTRO 4,906人、Harvard Thoracic 573人、Harvard Palliative 717人<br>對照共535人，包含良性疾病與 DCIS，不能稱為全數健康對照<br></p>
+<h2>疾病如何診斷</h2>
+<p>癌症的診斷流程依癌別而異，醫師會結合病史、身體檢查、影像與實驗室檢驗，許多癌症須以切片病理確認<br>這篇研究的 FaceAge 用於探索已診斷癌症患者的預後，癌症確診仍依各癌別的臨床流程<br><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis" target="_blank" rel="noopener">NCI 癌症診斷 ↗</a> · <a href="https://aim.mgh.harvard.edu/faceage" target="_blank" rel="noopener">FaceAge 研究計畫 ↗</a></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>癌症治療後通常會安排追蹤，依癌別、分期、治療方式與個人狀況決定頻率與檢查<br>FaceAge 研究結果本身不提供回診時程<br><a href="https://www.cancer.gov/about-cancer/coping/survivorship/follow-up-care" target="_blank" rel="noopener">NCI 癌症治療後追蹤 ↗</a></p></div>
+<h2>本週篇文章重點</h2>
+<ul>
+<li>訓練與驗證分開：IMDB-Wiki 經篩選保留56,304張照片<br>獨立 UTK 技術驗證納入2,547人<br>訓練未使用臨床患者資料，照片標籤是實際年齡，不能當作生物年齡的黃金標準<br></li>
+<li>影像品質是前提：MTCNN 擷取臉部後，由 Inception-ResNet v1 建立128維特徵進行迴歸<br>低解析、遮蔽與擷取失敗影像遭排除，實際場域的失敗案例不可忽略<br></li>
+<li>關聯而非因果：癌症患者的 FaceAge 平均較實際年齡高4.79歲<br>MAASTRO 調整年齡、性別及癌別後，每增加10歲 FaceAge 的死亡 HR 為1.151（95% CI 1.057–1.254），不代表個人壽命可由臉部決定<br></li>
+<li>預測能力需看絕對值：附錄表5的 MAASTRO 三年存活 AUC 約0.615（95% CI 0.595–0.634）<br>部分模型差異不顯著<br>100個案例、10位受測者的存活預測調查包含2位非醫師研究人員<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>FaceAge<br>biological age<br>chronological age<br>MTCNN<br>CNN<br>overall survival（OS）<br>hazard ratio（HR）<br>AUC<br>ECOG<br>TEACHH<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>照片可能提供年齡之外的預後訊息，也可能受族群、生活史與攝影條件影響<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>臨床效用、校準、公平性與前瞻性驗證不足時，不宜用臉部估計單獨決定治療<br>台灣族群適用性與實際醫療效益（待確認）<br></p></li></ul></div>
+<h2>來源與定位</h2>
+<p>PDF第3–7頁為資料集、問卷與QA<br>第9頁為年齡差<br>第15頁為表2<br>第19–21頁為方法<br>第34頁為表5<br>附錄印刷頁碼比 PDF 頁序少1頁<br></p></section>
+<section lang="en">
+<h2>Scope and population</h2>
+<p>Oncology and geriatric medicine. This 36-page supplementary appendix examines facial age estimates and overall survival. The local file does not include the main article. Three retrospective cancer cohorts total 6,196 patients: MAASTRO 4,906, Harvard Thoracic 573 and Harvard Palliative 717. The 535 controls include benign conditions and DCIS; they are not uniformly healthy volunteers.</p>
+<h2>Diagnosis</h2>
+<p>The diagnostic workup depends on the cancer type. It can include medical history, examination, imaging and lab tests. Many cancers require a biopsy for confirmation. The FaceAge study explored prognosis in people already diagnosed with cancer.<br><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis" target="_blank" rel="noopener">NCI cancer diagnosis ↗</a> · <a href="https://aim.mgh.harvard.edu/faceage" target="_blank" rel="noopener">FaceAge research project ↗</a></p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Cancer care usually includes follow-up after treatment. Cancer type, stage, treatment and individual circumstances guide the schedule and tests. The FaceAge study does not establish a follow-up schedule.<br><a href="https://www.cancer.gov/about-cancer/coping/survivorship/follow-up-care" target="_blank" rel="noopener">NCI follow-up after cancer treatment ↗</a></p></div>
+<h2>Key findings</h2>
+<ul>
+<li>Training used 56,304 curated IMDB-Wiki photographs; independent UTK technical validation included 2,547 people. No clinical patient data were used for training. Chronological age labels are not a biological-age reference standard.</li>
+<li>MTCNN face extraction precedes an Inception-ResNet v1 encoder and 128-dimensional embedding. Excluding poor-quality and obscured images limits application to unfiltered clinical photographs.</li>
+<li>Cancer patients had a mean FaceAge minus chronological-age difference of 4.79 years. In adjusted MAASTRO analysis, the mortality HR per FaceAge decade was 1.151 (95% CI 1.057–1.254). Association does not establish causality or an individual lifespan.</li>
+<li>Table 5 reports a three-year survival AUC of about 0.615 (95% CI 0.595–0.634). Several comparator differences were nonsignificant. The 100-case survey involved ten raters, including two lay researchers.</li></ul>
+<h2>Keywords</h2>
+<p>FaceAge, biological age, chronological age, MTCNN, CNN, overall survival, hazard ratio, AUC, ECOG, TEACHH.</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>photographs may contribute prognostic information beyond age.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>calibration, fairness and prospective utility require validation before treatment decisions. Applicability to Taiwan remains unconfirmed.</p></li></ul></div>
+<h2>Source</h2>
+<p>PDF pp. 3–7 cover data and QA, p. 9 the age gap, p. 15 Table 2, pp. 19–21 methods, and p. 34 Table 5; printed appendix numbering is one page lower.</p></section>
+<p class="downloads"><a href="https://doi.org/10.1016/j.landig.2025.03.002" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a></p></div>
+  <p class="view-slides">
+    <a href="slides.html#faceage" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#faceage" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="blood-pressure" aria-labelledby="title-blood-pressure">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">心臟內科</span><span lang="en">Cardiology</span></span>
+    <h1 id="title-blood-pressure" tabindex="-1"><span lang="zh-Hant">居家量血壓與年輕族群的隱藏風險</span><span lang="en">Home blood pressure and risk in younger adults</span></h1>
+    <p><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+<section lang="zh-Hant">
+<h2>科別與標題</h2>
+<p>心臟內科｜大魔王級殺手！「這類人」7成不自知有高血壓，量血壓避免5大NG動作<br></p>
+<h2>常見疾病與影響族群</h2>
+<p>高血壓及心腦血管、腎臟併發症<br>關注成年與年輕族群<br></p>
+<h2>疾病如何診斷</h2>
+<p>醫師依標準化、多次量測的血壓判斷是否持續升高<br>台灣 2022 年指引建議依 722 原則測量居家血壓，排除第一天後取平均，平均收縮壓達 130 mmHg 或舒張壓達 80 mmHg 即符合該指引的高血壓門檻<br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9121756/" target="_blank" rel="noopener">台灣高血壓指引 ↗</a></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>確診高血壓後通常需要長期追蹤<br>可帶居家 722 紀錄回診，醫師依控制情形、用藥調整及共病決定回診間隔<br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9121756/" target="_blank" rel="noopener">台灣高血壓指引 ↗</a></p></div>
+<h2>本週篇文章重點</h2>
+<ul>
+<li>無症狀也要量：文章提醒年輕人可能未察覺高血壓<br></li>
+<li>建立可比紀錄：722為7天、早晚、每回2遍<br></li>
+<li>降低測量干擾：先休息，保持安靜並注意姿勢<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>Hypertension<br>home blood pressure monitoring<br>white-coat hypertension<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>不舒服才測量容易漏掉風險<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>可靠紀錄有助評估<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>查核補充</strong><p>國健署定義的722共有28次原始讀值，非28個時段<br>原文14次說法易混淆<br>個別追蹤頻率應依醫囑<br></p></li></ul></div>
+<h2>來源</h2>
+<p>康健原文及國健署2025年衛教<br>閱讀日2026-11-10<br>原文歷史統計未當作2026年現況<br></p></section>
+<section lang="en">
+<h2>Scope and population</h2>
+<p>Cardiology. Hypertension and related cardiovascular and kidney disease affect adults, including younger people.</p>
+<h2>Diagnosis</h2>
+<p>Clinicians assess whether blood pressure is consistently elevated using repeated standardized measurements. The 2022 Taiwan guideline uses the 722 home protocol and excludes day one from the average. An average systolic pressure of at least 130 mmHg or diastolic pressure of at least 80 mmHg meets its threshold for hypertension.<br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9121756/" target="_blank" rel="noopener">Taiwan hypertension guideline ↗</a></p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Confirmed hypertension usually requires ongoing follow-up. Home 722 readings inform review, and the visit interval depends on blood pressure control, medication changes and other conditions.<br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9121756/" target="_blank" rel="noopener">Taiwan hypertension guideline ↗</a></p></div>
+<h2>Key findings</h2>
+<ul>
+<li>Symptoms can be absent; regular measurement matters.</li>
+<li>Use seven days, morning and evening, two readings per session.</li>
+<li>Rest first and maintain quiet, consistent posture.</li></ul>
+<h2>Keywords</h2>
+<p>Hypertension; home blood pressure monitoring; white-coat hypertension.</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>symptoms may miss risk.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>reliable records support evaluation.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>HPA verification</strong><p>722 gives 28 raw readings across 14 sessions. Follow-up frequency is individualized; historical article statistics are not current estimates.</p></li></ul></div>
+<h2>Source</h2>
+<p>CommonHealth, Chiu Shu-yi, 23 July 2024; HPA verification. Accessed 10 November 2026.</p></section>
+<p class="downloads"><a href="https://www.commonhealth.com.tw/article/90274" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a></p>
+<p><a href="https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=4878&pid=18903" target="_blank" rel="noopener"><span lang="zh-Hant">國健署 722 查核 ↗</span><span lang="en">HPA 722 verification ↗</span></a></p></div>
+  <p class="view-slides">
+    <a href="slides.html#blood-pressure" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#blood-pressure" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="blood-sugar" aria-labelledby="title-blood-sugar">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">內分泌新陳代謝科</span><span lang="en">Endocrinology</span></span>
+    <h1 id="title-blood-sugar" tabindex="-1"><span lang="zh-Hant">辨識高血糖與低血糖</span><span lang="en">Recognizing high and low blood sugar</span></h1>
+    <p><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+<section lang="zh-Hant">
+<h2>科別與標題</h2>
+<p>內分泌新陳代謝科｜認識血糖：高血糖與低血糖的定義與症狀<br></p>
+<h2>常見疾病與影響族群</h2>
+<p>糖尿病、高血糖、低血糖<br>糖友、用藥者與照顧者<br></p>
+<h2>疾病如何診斷</h2>
+<p>有高血糖或低血糖症狀時，需量測血糖才能確認當下的變化<br>糖尿病的診斷使用實驗室 A1C 或血漿葡萄糖等檢驗<br>若未使用胰島素或促胰島素分泌藥物，醫師評估疑似低血糖疾病時會核對惠普爾三聯徵：症狀出現時血漿葡萄糖偏低，血糖回升後症狀緩解<br><a href="https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis" target="_blank" rel="noopener">NIDDK 糖尿病檢驗 ↗</a> · <a href="https://academic.oup.com/jcem/article/94/3/709/2596247" target="_blank" rel="noopener">內分泌學會低血糖指引 ↗</a></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>糖尿病需持續追蹤血糖與治療<br>若發生明顯低血糖，例如低於 54 mg/dL 或需要他人協助，應由照護團隊重新評估治療計畫<br>未確診糖尿病而反覆出現異常者，也應評估原因<br><a href="https://diabetesjournals.org/care/article/49/Supplement_1/S132/163927/6-Glycemic-Goals-Hypoglycemia-and-Hyperglycemic" target="_blank" rel="noopener">ADA 血糖管理指引 ↗</a></p></div>
+<h2>本週篇文章重點</h2>
+<ul>
+<li>高血糖線索：口渴、頻尿等症狀需配合量測判讀<br></li>
+<li>低血糖線索：發抖、冒汗、心悸可能是警訊<br></li>
+<li>留意生活與用藥：餐食、活動與藥物失衡可能影響血糖<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>Hyperglycemia<br>hypoglycemia<br>insulin<br>DKA<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>糖友仍可能低血糖<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>延誤處理可傷害意識<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>NIDDK 查核補充</strong><p>低於70 mg/dL為常用警戒<br>清醒且可安全吞嚥時補充15–20克快速糖，15分鐘後複測<br>不能吞嚥時勿餵食，立即求救<br></p></li></ul></div>
+<h2>來源</h2>
+<p>Hello 醫師原文及 NIDDK 低血糖衛教<br>閱讀日2026-11-10<br>原文固定四階段症狀分級的通用性（待確認），未作為判斷依據<br></p></section>
+<section lang="en">
+<h2>Scope and population</h2>
+<p>Endocrinology. Diabetes, hyperglycemia and hypoglycemia concern patients, medication users and caregivers.</p>
+<h2>Diagnosis</h2>
+<p>Glucose measurement helps distinguish high from low glucose during symptoms. Diabetes is diagnosed with laboratory tests such as A1C or plasma glucose. In adults who are not using insulin or insulin secretagogues, clinicians evaluating a suspected hypoglycemic disorder look for Whipple’s triad: compatible symptoms, low plasma glucose during symptoms, and improvement as glucose rises.<br><a href="https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis" target="_blank" rel="noopener">NIDDK diabetes tests ↗</a> · <a href="https://academic.oup.com/jcem/article/94/3/709/2596247" target="_blank" rel="noopener">Endocrine Society hypoglycemia guideline ↗</a></p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Diabetes requires ongoing monitoring. A glucose level below 54 mg/dL or an episode requiring assistance should prompt review of the treatment plan. Repeated abnormal glucose readings without a diabetes diagnosis also warrant evaluation.<br><a href="https://diabetesjournals.org/care/article/49/Supplement_1/S132/163927/6-Glycemic-Goals-Hypoglycemia-and-Hyperglycemic" target="_blank" rel="noopener">ADA glycemic management standards ↗</a></p></div>
+<h2>Key findings</h2>
+<ul>
+<li>Thirst and frequent urination warrant glucose assessment.</li>
+<li>Shaking, sweating or palpitations can signal low glucose.</li>
+<li>Meals, activity and medicines can disrupt glucose balance.</li></ul>
+<h2>Keywords</h2>
+<p>Hyperglycemia; hypoglycemia; insulin; DKA.</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>diabetes can involve low glucose.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>delayed action can impair consciousness.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>NIDDK verification</strong><p>below 70 mg/dL is a common alert; if swallowing safely, take 15–20 g rapid carbohydrate and recheck after 15 minutes. If unable to swallow, give nothing orally and seek emergency help.</p></li></ul></div>
+<h2>Source</h2>
+<p>Hello Yishi, updated 16 September 2026; NIDDK verification. Accessed 10 November 2026. The article’s fixed symptom stages remain unconfirmed.</p></section>
+<p class="downloads"><a href="https://helloyishi.com.tw/diabetes/all-you-need-to-know-about-blood-sugar/" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a></p>
+<p><a href="https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-problems/low-blood-glucose-hypoglycemia" target="_blank" rel="noopener"><span lang="zh-Hant">NIDDK 低血糖查核 ↗</span><span lang="en">NIDDK low blood sugar verification ↗</span></a></p></div>
+  <p class="view-slides">
+    <a href="slides.html#blood-sugar" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#blood-sugar" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="kidney-screening" aria-labelledby="title-kidney-screening">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">腎臟內科</span><span lang="en">Nephrology</span></span>
+    <h1 id="title-kidney-screening" tabindex="-1"><span lang="zh-Hant">慢性腎病篩檢的兩項指標</span><span lang="en">Two tests for chronic kidney disease screening</span></h1>
+    <p><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>抽血估計腎臟過濾能力，驗尿找腎損傷線索<br>兩項檢查合看更能辨識風險<br></p>
+<h2>科別</h2>
+<p>腎臟內科</p>
+<h2>常見疾病</h2>
+<p>慢性腎臟病、糖尿病、高血壓與急性腎損傷<br></p>
+<h2>疾病如何診斷</h2>
+<p>慢性腎臟病需有持續至少三個月的腎臟結構或功能異常<br>例如 eGFR 持續低於 60 mL/min/1.73 m²，或 UACR 持續達 30 mg/g，均可符合相關條件<br>首次異常時，醫師會查看過往資料或安排複檢，並評估是否為急性變化<br><a href="https://kdigo.org/guidelines/ckd-evaluation-and-management/kdigo-2024-ckd-guideline/" target="_blank" rel="noopener">KDIGO 慢性腎臟病指引 ↗</a></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>確診慢性腎臟病後需持續追蹤<br>KDIGO 建議成人至少每年評估腎絲球過濾率與尿白蛋白，進展風險較高時可增加頻率<br><a href="https://kdigo.org/wp-content/uploads/2017/02/KDIGO-2024-CKD-Guideline-Executive-Summary.pdf" target="_blank" rel="noopener">KDIGO 慢性腎臟病指引摘要 ↗</a></p></div>
+<h2>影響族群</h2>
+<p>糖尿病或高血壓患者、高齡者、有腎病家族史或曾有急性腎損傷的人<br></p>
+<h2>文章重點</h2>
+<ul><li>高風險族群<br>早期慢性腎病可能沒有明顯症狀<br>康健將糖尿病、高血壓與腎病家族史列為篩檢時應留意的風險因素<br></li><li>兩項檢查各看什麼<br>血液肌酸酐可用來估算 eGFR<br>尿液 UACR 衡量白蛋白相對於肌酸酐的濃度，可提供腎損傷線索<br></li><li>尿試紙有侷限<br>尿液濃淡會影響試紙判讀<br>試紙出現異常時，可用定量檢查確認<br></li><li>確認異常持續時間<br>KDIGO 以至少三個月的證據確認慢性<br>單次異常要結合過往資料或複檢，並考慮急性腎損傷<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>CKD（慢性腎臟病）、eGFR（估算腎絲球過濾率）、UACR（尿白蛋白與肌酸酐比值）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>沒有症狀的人也可能有早期腎損傷<br>了解抽血與驗尿的分工，有助於讀懂健檢報告<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>KDIGO 同時考量病因、腎絲球過濾率與白蛋白尿來評估風險<br>原文提及的長期透析比例能否外推到其他族群（待確認）<br></p></li></ul></div>
+<h2>來源</h2>
+<p>康健整合傳播企劃，2022-03-01，贊助內容<br>查核依據為 KDIGO 2024 慢性腎病指引<br></p>
+    </section>
+    <section lang="en">
+<p>Blood tests estimate filtration and urine tests look for signs of kidney damage. The two results help assess risk together.</p>
+<h2>Specialty</h2>
+<p>Nephrology</p>
+<h2>Related conditions</h2>
+<p>Chronic kidney disease, diabetes, hypertension and acute kidney injury.</p>
+<h2>Diagnosis</h2>
+<p>Chronic kidney disease requires evidence of a kidney structure or function abnormality lasting at least three months. Examples include persistent eGFR below 60 mL/min/1.73 m² or UACR of at least 30 mg/g. Clinicians review prior records or repeat testing after a new abnormal result and consider acute causes.<br><a href="https://kdigo.org/guidelines/ckd-evaluation-and-management/kdigo-2024-ckd-guideline/" target="_blank" rel="noopener">KDIGO chronic kidney disease guideline ↗</a></p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Confirmed chronic kidney disease needs ongoing monitoring. KDIGO advises checking GFR and albuminuria at least annually in adults, with more frequent checks when progression risk is higher and results could affect care.<br><a href="https://kdigo.org/wp-content/uploads/2017/02/KDIGO-2024-CKD-Guideline-Executive-Summary.pdf" target="_blank" rel="noopener">KDIGO chronic kidney disease guideline summary ↗</a></p></div>
+<h2>Population</h2>
+<p>People with diabetes or hypertension, older adults, and people with a family history of kidney disease or prior acute kidney injury.</p>
+<h2>Key points</h2>
+<ul><li>Who is at risk. Early CKD can have few obvious symptoms. CommonHealth highlights diabetes, hypertension and a family history of kidney disease as screening considerations.</li><li>What each test measures. Blood creatinine can help estimate eGFR. Urine UACR measures albumin relative to creatinine and can indicate kidney damage.</li><li>Limits of a dipstick. Urine concentration can affect dipstick readings. An abnormal dipstick result can be confirmed with quantitative testing.</li><li>Establishing chronicity. KDIGO uses evidence of at least three months to establish chronicity. A single abnormal result calls for review of prior results or repeat testing and consideration of acute kidney injury.</li></ul>
+<h2>Key terms</h2>
+<p>CKD (chronic kidney disease), eGFR (estimated glomerular filtration rate), UACR (urine albumin-to-creatinine ratio).</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>People can have early kidney damage without symptoms. Knowing what the two tests measure helps make sense of a health check report.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>KDIGO assesses risk using cause, filtration and albuminuria together. Whether the article’s long-term dialysis estimate applies to other populations remains unconfirmed.</p></li></ul></div>
+<h2>Sources</h2>
+<p>CommonHealth sponsored feature, 1 March 2022. Clinical context checked against the KDIGO 2024 CKD guideline.</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_慢性腎病篩檢.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_慢性腎病篩檢.md">Markdown ↗</a>
+      <a href="https://www.commonhealth.com.tw/article/85855" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://kdigo.org/guidelines/ckd-evaluation-and-management/kdigo-2024-ckd-guideline/" target="_blank" rel="noopener"><span lang="zh-Hant">查核來源 ↗</span><span lang="en">Verification source ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#kidney-screening" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#kidney-screening" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="lipid-panel" aria-labelledby="title-lipid-panel">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">心臟內科</span><span lang="en">Cardiology</span></span>
+    <h1 id="title-lipid-panel" tabindex="-1"><span lang="zh-Hant">血脂檢驗的四個指標</span><span lang="en">Four measures in a lipid panel</span></h1>
+    <p><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>血脂報告通常包含總膽固醇、LDL-C、HDL-C 和三酸甘油酯，抽血是否要空腹則依檢驗目的而定<br></p>
+<h2>科別</h2>
+<p>心臟內科</p>
+<h2>常見疾病</h2>
+<p>血脂異常、動脈粥狀硬化、心肌梗塞及缺血性中風<br></p>
+<h2>疾病如何診斷</h2>
+<p>血脂異常透過抽血檢查評估，標準血脂檢驗通常包括總膽固醇、LDL-C、HDL-C 和三酸甘油酯<br>醫師依各項數值辨識異常型態，並結合病史及心血管風險判讀<br>是否需要空腹取決於檢驗目的及醫療團隊的安排<br><a href="https://www.heart.org/en/health-topics/cholesterol/how-to-get-your-cholesterol-tested" target="_blank" rel="noopener">美國心臟協會血脂檢驗 ↗</a></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>已確診血脂異常或使用降血脂藥物者通常需要定期複檢<br>醫師依心血管風險、藥物調整與治療反應決定抽血間隔<br><a href="https://professional.heart.org/en/guidelines-and-statements/2026-accahaaacvprabcacpmadaagsaphaaspcnlapcna-guideline-on-the-management-ofcir0000000000001423" target="_blank" rel="noopener">AHA 血脂管理指引 ↗</a></p></div>
+<h2>影響族群</h2>
+<p>接受健檢的成人，以及有糖尿病、既有心血管疾病或早發心血管病家族史的人<br></p>
+<h2>文章重點</h2>
+<ul><li>血脂報告的四項數值<br>標準血脂檢驗通常包含總膽固醇、LDL-C、HDL-C 和三酸甘油酯<br>判讀時可先分辨每個數值代表什麼<br></li><li>LDL 與動脈斑塊<br>過高的 LDL-C 與動脈粥狀硬化有關<br>血脂異常往往沒有明顯症狀<br></li><li>抽血是否要空腹<br>進食可能影響三酸甘油酯<br>美國心臟協會說明，血脂檢驗可以是空腹或非空腹，應依檢驗目的與院所指示<br></li><li>看整體心血管風險<br>檢驗報告需搭配病史、糖尿病等風險因素判讀<br>原文列出的健檢資格屬當時資訊，現行資格（待確認）<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>LDL-C（低密度脂蛋白膽固醇）、HDL-C（高密度脂蛋白膽固醇）、TG（三酸甘油酯）、ASCVD（動脈粥狀硬化性心血管疾病）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>了解各指標的含義，有助於釐清健檢報告上的紅字與後續問題<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>檢驗目的會影響空腹要求<br>原文提及空腹時停藥，筆記將用藥處理留給開單醫療團隊確認<br></p></li></ul></div>
+<h2>來源</h2>
+<p>Hello 醫師，于承宇撰文、吳慶南醫師審稿，2024-04-09 更新<br>另查核美國心臟協會血脂檢驗說明<br></p>
+    </section>
+    <section lang="en">
+<p>A standard lipid panel includes total cholesterol, LDL-C, HDL-C and triglycerides. The reason for testing helps determine whether fasting is needed.</p>
+<h2>Specialty</h2>
+<p>Cardiology</p>
+<h2>Related conditions</h2>
+<p>Dyslipidemia, atherosclerosis, myocardial infarction and ischemic stroke.</p>
+<h2>Diagnosis</h2>
+<p>A lipid panel measures total cholesterol, LDL-C, HDL-C and triglycerides. Clinicians use the pattern of results, medical history and cardiovascular risk to interpret dyslipidemia. The reason for testing guides whether a fasting sample is needed.<br><a href="https://www.heart.org/en/health-topics/cholesterol/how-to-get-your-cholesterol-tested" target="_blank" rel="noopener">American Heart Association lipid testing ↗</a></p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>People with dyslipidemia or on lipid-lowering medication usually need repeat lipid testing. Cardiovascular risk, medication changes and response guide the interval.<br><a href="https://professional.heart.org/en/guidelines-and-statements/2026-accahaaacvprabcacpmadaagsaphaaspcnlapcna-guideline-on-the-management-ofcir0000000000001423" target="_blank" rel="noopener">AHA dyslipidemia guideline ↗</a></p></div>
+<h2>Population</h2>
+<p>Adults having a health check and people with diabetes, established cardiovascular disease or a family history of early cardiovascular disease.</p>
+<h2>Key points</h2>
+<ul><li>What the four measures show. A standard panel usually reports total cholesterol, LDL-C, HDL-C and triglycerides. Each measure gives different information.</li><li>LDL and arterial plaque. High LDL-C is linked to atherosclerosis. Abnormal lipid levels often cause no obvious symptoms.</li><li>When fasting is relevant. Food intake can affect triglycerides. The AHA describes both fasting and nonfasting testing, depending on the situation and the testing team’s instructions.</li><li>Considering overall risk. Results are interpreted alongside medical history and risk factors such as diabetes. Current eligibility for the screening program described in the article remains unconfirmed.</li></ul>
+<h2>Key terms</h2>
+<p>LDL-C (low-density lipoprotein cholesterol), HDL-C (high-density lipoprotein cholesterol), TG (triglycerides), ASCVD (atherosclerotic cardiovascular disease).</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>Knowing what each measure represents helps readers ask focused questions about flagged results.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>The purpose of the test affects fasting instructions. The source mentions withholding medicines while fasting. Medication instructions should be confirmed with the ordering team.</p></li></ul></div>
+<h2>Sources</h2>
+<p>Hello Yishi, written by Yu Cheng-yu and reviewed by Dr. Wu Ching-nan, updated 9 April 2024. Cross-checked with the American Heart Association.</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_血脂檢驗.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_血脂檢驗.md">Markdown ↗</a>
+      <a href="https://helloyishi.com.tw/heart-health/cholesterol/cholesterol-and-triglycerides-tests-precautions/" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://www.heart.org/en/health-topics/cholesterol/how-to-get-your-cholesterol-tested" target="_blank" rel="noopener"><span lang="zh-Hant">查核來源 ↗</span><span lang="en">Verification source ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#lipid-panel" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#lipid-panel" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="reflux-monitoring" aria-labelledby="title-reflux-monitoring">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">胃腸肝膽科</span><span lang="en">Gastroenterology</span></span>
+    <h1 id="title-reflux-monitoring" tabindex="-1"><span lang="zh-Hant">胃食道逆流的酸鹼值監測</span><span lang="en">Esophageal pH monitoring for reflux</span></h1>
+    <p><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>胃鏡觀察食道黏膜，動態監測記錄食道酸暴露與症狀時間<br>兩種檢查回答不同的問題<br></p>
+<h2>科別</h2>
+<p>胃腸肝膽科</p>
+<h2>常見疾病</h2>
+<p>胃食道逆流疾病（GERD）、逆流性食道炎<br></p>
+<h2>疾病如何診斷</h2>
+<p>醫師先依火燒心、胃內容物逆流等症狀與病史評估胃食道逆流疾病（GERD）<br>若有吞嚥困難等警訊，可能安排胃鏡檢查<br>若診斷仍不明確，動態食道 pH 或 pH 阻抗監測可評估酸暴露，以及症狀與逆流事件的關聯<br><a href="https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/diagnosis" target="_blank" rel="noopener">NIDDK 胃食道逆流診斷 ↗</a> · <a href="https://gi.org/topics/esophageal-physiologic-testing/" target="_blank" rel="noopener">ACG 食道生理檢查 ↗</a></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>是否需要長期回診取決於症狀、治療反應與有無併發症<br>症狀持續、反覆或需要長期用藥時，回診可重新評估診斷與治療<br><a href="https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/treatment" target="_blank" rel="noopener">NIDDK 胃食道逆流治療 ↗</a></p></div>
+<h2>影響族群</h2>
+<p>反覆火燒心或酸水逆流的成人，尤其是症狀持續且診斷仍不明確者<br></p>
+<h2>文章重點</h2>
+<ul><li>胃鏡的角色<br>胃鏡可觀察糜爛等黏膜變化<br>即使未看到糜爛，仍可能需要其他資料來判斷是否有逆流<br></li><li>有線和無線監測<br>導管式 pH 阻抗檢查通常記錄 24 小時，也能偵測弱酸或非酸性逆流<br>無線膠囊測酸暴露，依檢查安排可記錄至 96 小時<br></li><li>對照症狀與日常活動<br>監測期間可記下進餐、躺下與症狀的時間，供醫師對照逆流事件和酸暴露<br></li><li>檢查結果要結合病史<br>檢查種類與用藥安排依臨床問題而定<br>原文引用的台灣盛行率和給付條件是否適用於現況（待確認）<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>GERD（胃食道逆流疾病）、ambulatory pH monitoring（動態酸鹼值監測）、pH impedance（酸鹼值與阻抗監測）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>火燒心的感受與客觀酸暴露可能不同<br>原文兩個病例呈現這項差異<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>結合酸暴露、症狀與病史，可協助決定是否繼續評估逆流，或探查其他原因<br></p></li></ul></div>
+<h2>來源</h2>
+<p>康健，邱淑宜，2023-05-31<br>以美國胃腸病學會（ACG）的檢查說明補充查核<br></p>
+    </section>
+    <section lang="en">
+<p>Endoscopy examines the esophageal lining. Ambulatory monitoring records acid exposure and the timing of symptoms.</p>
+<h2>Specialty</h2>
+<p>Gastroenterology</p>
+<h2>Related conditions</h2>
+<p>Gastroesophageal reflux disease (GERD) and reflux esophagitis.</p>
+<h2>Diagnosis</h2>
+<p>Clinicians first review symptoms such as heartburn and regurgitation and take a medical history. Alarm symptoms such as difficulty swallowing may prompt endoscopy. If GERD remains uncertain, ambulatory pH or pH-impedance monitoring can assess acid exposure and relate symptoms to reflux events.<br><a href="https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/diagnosis" target="_blank" rel="noopener">NIDDK GERD diagnosis ↗</a> · <a href="https://gi.org/topics/esophageal-physiologic-testing/" target="_blank" rel="noopener">ACG esophageal testing ↗</a></p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Follow-up depends on symptoms, treatment response and complications. Persistent or recurring symptoms or a need for long-term medication warrant review of the diagnosis and treatment.<br><a href="https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/treatment" target="_blank" rel="noopener">NIDDK GERD treatment ↗</a></p></div>
+<h2>Population</h2>
+<p>Adults with recurrent heartburn or regurgitation, especially when symptoms persist and the diagnosis is uncertain.</p>
+<h2>Key points</h2>
+<ul><li>What endoscopy shows. Endoscopy can identify changes such as erosions. When no erosions are seen, other evidence may help assess reflux.</li><li>Catheter and wireless monitoring. Catheter-based pH impedance testing typically records for 24 hours and can detect weakly acidic or nonacid reflux. A wireless capsule measures acid exposure for up to 96 hours, depending on the protocol.</li><li>Matching symptoms to daily activity. A diary of meals, lying down and symptoms helps clinicians compare daily events with reflux episodes and acid exposure.</li><li>Interpreting results in context. The clinical question guides test choice and medication instructions. The current applicability of the article’s Taiwan prevalence and reimbursement figures remains unconfirmed.</li></ul>
+<h2>Key terms</h2>
+<p>GERD (gastroesophageal reflux disease), ambulatory pH monitoring, and pH impedance monitoring.</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>Heartburn and measured acid exposure may differ. The two cases in the article illustrate this distinction.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>Considering acid exposure, symptoms and history together can guide whether to investigate reflux further or look for other causes.</p></li></ul></div>
+<h2>Sources</h2>
+<p>CommonHealth, Chiu Shu-yi, 31 May 2023. Cross-checked with the American College of Gastroenterology (ACG).</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_胃食道逆流監測.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_胃食道逆流監測.md">Markdown ↗</a>
+      <a href="https://www.commonhealth.com.tw/article/88229" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://gi.org/topics/esophageal-physiologic-testing/" target="_blank" rel="noopener"><span lang="zh-Hant">查核來源 ↗</span><span lang="en">Verification source ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#reflux-monitoring" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#reflux-monitoring" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="constipation-fiber" aria-labelledby="title-constipation-fiber">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">營養學</span><span lang="en">Nutrition</span></span>
+    <h1 id="title-constipation-fiber" tabindex="-1"><span lang="zh-Hant">便祕與膳食纖維</span><span lang="en">Dietary fiber and constipation</span></h1>
+    <p><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>便祕可表現為糞便硬、排便費力或排不乾淨<br>筆記整理纖維來源，以及逐步增加攝取時如何搭配水分<br></p>
+<h2>科別</h2>
+<p>營養學</p>
+<h2>常見疾病</h2>
+<p>便祕、便祕型腸躁症（IBS-C）<br></p>
+<h2>疾病如何診斷</h2>
+<p>醫師會綜合排便頻率、糞便硬度、用力程度、排不乾淨的感覺與症狀持續時間，並詢問用藥和病史<br>必要時可做身體檢查，或依懷疑的原因安排抽血、肛門直腸功能檢查等<br><a href="https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/diagnosis" target="_blank" rel="noopener">NIDDK 便祕診斷 ↗</a></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>偶發便祕在改善後通常無須固定回診<br>若症狀持續、反覆或自我照護無效，應評估用藥與可能成因，再決定追蹤安排<br><a href="https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/symptoms-causes" target="_blank" rel="noopener">NIDDK 便祕症狀與原因 ↗</a></p></div>
+<h2>影響族群</h2>
+<p>膳食纖維攝取較少、活動量較低的成人，另涵蓋部分高齡者與孕婦<br></p>
+<h2>文章重點</h2>
+<ul><li>症狀包含排便困難<br>原文列出糞便乾硬、用力排便、排不乾淨和排便次數減少<br>整理時將排便頻率和這些症狀一起考慮<br></li><li>兩類膳食纖維<br>部分水溶性纖維吸水後形成凝膠，不溶性纖維可增加糞便體積<br>許多植物性食物同時含有兩類纖維<br></li><li>從食物逐步增加<br>全穀、豆類、蔬菜、水果和堅果都可提供纖維<br>NIDDK 建議逐步增加，並搭配足夠液體<br></li><li>水分依個人情況調整<br>NIDDK 提醒，適合的飲水量取決於健康與活動狀況等因素<br>原文對氣泡水或咖啡的比較能否普遍適用（待確認）<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>constipation（便祕）、soluble fiber（水溶性纖維）、insoluble fiber（不溶性纖維）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>知道哪些食物含纖維，有助於把飲食建議落實到日常餐食<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>便祕可能有多種原因<br>若反覆困擾，飲食紀錄和排便症狀可供就醫評估參考<br></p></li></ul></div>
+<h2>來源</h2>
+<p>Hello 醫師，于承宇撰文、賴建翰醫師審稿，2024-09-10 更新<br>以 NIDDK 飲食衛教補充查核<br></p>
+    </section>
+    <section lang="en">
+<p>Constipation can involve hard stools, straining or incomplete emptying. These notes cover fiber sources and hydration when increasing intake.</p>
+<h2>Specialty</h2>
+<p>Nutrition</p>
+<h2>Related conditions</h2>
+<p>Constipation and irritable bowel syndrome with constipation (IBS-C).</p>
+<h2>Diagnosis</h2>
+<p>Clinicians consider stool frequency and consistency, straining, incomplete evacuation and symptom duration, along with medication use and medical history. Depending on the suspected cause, they may use a physical examination, blood tests or anorectal function tests.<br><a href="https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/diagnosis" target="_blank" rel="noopener">NIDDK constipation diagnosis ↗</a></p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Occasional constipation that resolves usually needs no scheduled follow-up. Persistent or recurrent symptoms, or symptoms that do not improve with self-care, warrant assessment of medicines and possible causes.<br><a href="https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/symptoms-causes" target="_blank" rel="noopener">NIDDK constipation symptoms and causes ↗</a></p></div>
+<h2>Population</h2>
+<p>Adults with low dietary fiber intake or limited activity, including some older adults and pregnant people.</p>
+<h2>Key points</h2>
+<ul><li>Difficulty passing stool. The article lists hard stools, straining, incomplete emptying and infrequent bowel movements. Frequency is considered alongside these symptoms.</li><li>Two types of dietary fiber. Some soluble fibers form a gel with water. Insoluble fiber can add stool bulk. Many plant foods contain both types.</li><li>Increase fiber gradually. Whole grains, legumes, vegetables, fruit and nuts provide fiber. NIDDK advises increasing intake gradually and pairing it with adequate fluids.</li><li>Individual fluid needs. NIDDK notes that fluid needs vary with health, activity and other factors. The broad applicability of the article’s claims about sparkling water or coffee remains unconfirmed.</li></ul>
+<h2>Key terms</h2>
+<p>Constipation, soluble fiber and insoluble fiber.</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>Recognizing fiber-rich foods makes it easier to apply nutrition guidance to everyday meals.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>Constipation has multiple possible causes. A food and symptom record can inform a clinical evaluation when symptoms keep recurring.</p></li></ul></div>
+<h2>Sources</h2>
+<p>Hello Yishi, Yu Cheng-yu, reviewed by Dr. Lai Chien-han, updated 10 September 2024. Cross-checked with NIDDK nutrition guidance.</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_便祕與膳食纖維.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_便祕與膳食纖維.md">Markdown ↗</a>
+      <a href="https://helloyishi.com.tw/stomach/constipation/how-to-deal-with-constipation/" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/eating-diet-nutrition" target="_blank" rel="noopener"><span lang="zh-Hant">查核來源 ↗</span><span lang="en">Verification source ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#constipation-fiber" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#constipation-fiber" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="gout-diet" aria-labelledby="title-gout-diet">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">風濕免疫科</span><span lang="en">Rheumatology</span></span>
+    <h1 id="title-gout-diet" tabindex="-1"><span lang="zh-Hant">高尿酸與痛風的飲食重點</span><span lang="en">Diet and the distinction between high urate and gout</span></h1>
+    <p><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>尿酸偏高可能沒有症狀<br>這份筆記整理尿酸數值、痛風發作與飲食調整的關係<br></p>
+<h2>科別</h2>
+<p>風濕免疫科</p>
+<h2>常見疾病</h2>
+<p>高尿酸血症、痛風及痛風石<br></p>
+<h2>疾病如何診斷</h2>
+<p>醫師綜合急性關節紅腫熱痛、發作病史與血尿酸檢驗來評估痛風<br>若發作時尿酸未升高但仍懷疑痛風，可在發作緩解至少兩週後複驗<br>診斷不確定時，可抽取關節液，用顯微鏡檢查是否有尿酸鈉結晶<br><a href="https://www.nice.org.uk/guidance/ng219/chapter/Recommendations" target="_blank" rel="noopener">NICE 痛風診斷指引 ↗</a></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>確診痛風且使用降尿酸藥者通常需長期追蹤血尿酸與發作情形<br>調藥期間需較密集抽血，達標後 NICE 建議可考慮每年驗一次血尿酸<br><a href="https://www.nice.org.uk/guidance/ng219/chapter/Recommendations" target="_blank" rel="noopener">NICE 痛風管理指引 ↗</a></p></div>
+<h2>影響族群</h2>
+<p>健檢發現尿酸偏高的成人、有痛風病史或家族史者<br></p>
+<h2>文章重點</h2>
+<ul><li>尿酸偏高的成因<br>尿酸偏高可能與生成增加或排出減少有關<br>原文列舉體質與部分用藥等因素<br></li><li>高尿酸與痛風的差別<br>尿酸偏高可能沒有症狀<br>尿酸鹽結晶引起發炎時，可能出現關節紅腫及急性疼痛<br></li><li>飲食調整的範圍<br>ACR 有條件建議痛風患者限制酒精、普林及高果糖玉米糖漿<br>飲食調整對血尿酸的影響通常有限<br></li><li>區分急性處理與長期管理<br>急性期處理發炎與疼痛<br>是否需要長期降尿酸治療，則依發作頻率、痛風石等情況評估<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>purine（普林）、serum urate（血尿酸）、gout flare（痛風發作）、tophi（痛風石）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>理解血尿酸數值和關節發炎的差別，有助於看懂檢驗結果<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>飲食可影響發作誘因，反覆發作也需要評估長期管理<br>原文固定飲水量及蛋白質上限能否普遍適用（待確認）<br></p></li></ul></div>
+<h2>來源</h2>
+<p>康健，陳蔚承，2023-05-24<br>以美國風濕病學會（ACR）2020 痛風指引補充<br></p>
+    </section>
+    <section lang="en">
+<p>High urate can occur without symptoms. These notes distinguish the lab result, gout flares and the role of diet.</p>
+<h2>Specialty</h2>
+<p>Rheumatology</p>
+<h2>Related conditions</h2>
+<p>Hyperuricemia, gout and tophi.</p>
+<h2>Diagnosis</h2>
+<p>Clinicians assess acute joint pain, swelling and redness along with flare history and serum urate. If urate is low during a flare and gout is still suspected, it can be checked again at least two weeks after the flare settles. When the diagnosis is uncertain, joint fluid can be examined for monosodium urate crystals.<br><a href="https://www.nice.org.uk/guidance/ng219/chapter/Recommendations" target="_blank" rel="noopener">NICE gout diagnosis guideline ↗</a></p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>People taking urate-lowering therapy for gout usually need ongoing review of serum urate and flares. Testing is more frequent during dose adjustment. NICE suggests considering annual urate checks after the target is reached.<br><a href="https://www.nice.org.uk/guidance/ng219/chapter/Recommendations" target="_blank" rel="noopener">NICE gout management guideline ↗</a></p></div>
+<h2>Population</h2>
+<p>Adults with elevated urate on blood tests, and people with gout or a family history of gout.</p>
+<h2>Key points</h2>
+<ul><li>Why urate can be high. High urate can reflect increased production or reduced excretion. The article discusses inherited factors and some medications.</li><li>High urate and gout. High urate can be asymptomatic. Urate crystals can trigger inflammation with joint swelling, redness and acute pain.</li><li>The role of diet. The ACR conditionally recommends limiting alcohol, purines and high-fructose corn syrup for people with gout. Diet changes usually have a modest effect on serum urate.</li><li>Flare care and long-term management. Flare care addresses inflammation and pain. The need for long-term urate lowering depends on factors such as flare frequency and tophi.</li></ul>
+<h2>Key terms</h2>
+<p>Purine, serum urate, gout flare and tophi.</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>Understanding the difference between serum urate and joint inflammation helps readers interpret a lab result.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>Diet can affect flare triggers, and recurring flares warrant assessment for long-term management. The article’s fixed water and protein targets may not apply universally.</p></li></ul></div>
+<h2>Sources</h2>
+<p>CommonHealth, Chen Wei-cheng, 24 May 2023. Cross-checked with the 2020 ACR gout guideline.</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_高尿酸與痛風.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_高尿酸與痛風.md">Markdown ↗</a>
+      <a href="https://www.commonhealth.com.tw/article/88146" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10563586/" target="_blank" rel="noopener"><span lang="zh-Hant">查核來源 ↗</span><span lang="en">Verification source ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#gout-diet" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#gout-diet" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="calcium-supplements" aria-labelledby="title-calcium-supplements">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">營養學</span><span lang="en">Nutrition</span></span>
+    <h1 id="title-calcium-supplements" tabindex="-1"><span lang="zh-Hant">鈣質來源與補充品標示</span><span lang="en">Calcium sources and supplement labels</span></h1>
+    <p><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>估算每日鈣質攝取時，食物與補充品都要計入<br>比較補充品時可看每份的元素鈣<br></p>
+<h2>科別</h2>
+<p>營養學</p>
+<h2>常見疾病</h2>
+<p>鈣攝取不足、骨質疏鬆症<br></p>
+<h2>疾病如何診斷</h2>
+<p>骨質疏鬆可用雙能量 X 光吸收儀（DXA）測量髖部或腰椎骨密度<br>對停經後女性與 50 歲以上男性，適用部位的 T 值 ≤ −2.5 可符合診斷條件<br>髖部或脊椎的脆弱性骨折也可作為診斷依據<br><a href="https://www.bonehealthandosteoporosis.org/patients/diagnosis-information/bone-density-examtesting/" target="_blank" rel="noopener">BHOF 骨密度檢查與判讀 ↗</a></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>單純調整飲食中的鈣攝取，通常無須因此固定回診<br>若已確診骨質疏鬆或曾有脆弱性骨折，通常需追蹤骨折風險與治療反應<br><a href="https://pmc.ncbi.nlm.nih.gov/articles/9546973/" target="_blank" rel="noopener">BHOF 骨質疏鬆指引 ↗</a></p></div>
+<h2>影響族群</h2>
+<p>關心骨骼健康、平時少吃富含鈣質食物，或正在評估是否補充鈣質的成人<br></p>
+<h2>文章重點</h2>
+<ul><li>先盤點食物來源<br>乳品、強化鈣飲品及以鈣鹽製作的豆腐都可提供鈣<br>不同產品的含量可從標示比較<br></li><li>看每份元素鈣<br>碳酸鈣與檸檬酸鈣的元素鈣重量比例不同<br>比較時看營養標示中的每份鈣含量<br></li><li>劑型與吸收<br>NIH ODS 指出，碳酸鈣通常隨餐吸收較佳，檸檬酸鈣對胃酸的依賴較低<br>單次補充量也會影響吸收比例<br></li><li>維生素 D 與用藥<br>維生素 D 參與腸道鈣吸收<br>正在用藥的人可向醫師或藥師確認補充品是否有交互作用<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>elemental calcium（元素鈣）、calcium carbonate（碳酸鈣）、calcium citrate（檸檬酸鈣）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>補充品包裝上的化合物重量和元素鈣可能不同<br>先看每份鈣含量，再與飲食攝取合計<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>需求與補充方式取決於飲食、年齡及健康狀況<br>原文的固定吸收率和鈣鎂比例能否通用（待確認）<br></p></li></ul></div>
+<h2>來源</h2>
+<p>Hello 醫師，Chuck Huang 撰文、陳哲信醫師審稿，2023-02-08 更新<br>以 NIH 膳食補充品辦公室（ODS）資料查核<br></p>
+    </section>
+    <section lang="en">
+<p>Calcium intake includes both food and supplements. Elemental calcium per serving is the useful figure when comparing products.</p>
+<h2>Specialty</h2>
+<p>Nutrition</p>
+<h2>Related conditions</h2>
+<p>Inadequate calcium intake and osteoporosis.</p>
+<h2>Diagnosis</h2>
+<p>Osteoporosis can be diagnosed with dual-energy X-ray absorptiometry (DXA) of the hip or lumbar spine. A T-score of −2.5 or lower at an eligible site meets a diagnostic criterion in postmenopausal women and men aged 50 or older. A fragility fracture of the hip or spine can also establish the diagnosis.<br><a href="https://www.bonehealthandosteoporosis.org/patients/diagnosis-information/bone-density-examtesting/" target="_blank" rel="noopener">BHOF bone density testing and interpretation ↗</a></p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Adjusting dietary calcium alone generally does not require scheduled visits. Diagnosed osteoporosis or a prior fragility fracture generally warrants review of fracture risk and treatment response.<br><a href="https://pmc.ncbi.nlm.nih.gov/articles/9546973/" target="_blank" rel="noopener">BHOF osteoporosis guide ↗</a></p></div>
+<h2>Population</h2>
+<p>Adults concerned about bone health, eating few calcium-rich foods or considering supplementation.</p>
+<h2>Key points</h2>
+<ul><li>Review dietary sources. Dairy, calcium-fortified drinks and calcium-set tofu can contribute calcium. Labels help compare the amounts across products.</li><li>Check elemental calcium. Calcium carbonate and citrate contain different proportions of elemental calcium. Compare the amount of calcium listed per serving.</li><li>Form and absorption. NIH ODS notes that carbonate is generally better absorbed with food, while citrate depends less on stomach acid. The amount taken at once also affects the fraction absorbed.</li><li>Vitamin D and medications. Vitamin D supports intestinal calcium absorption. People taking medication can ask their clinician or pharmacist about supplement interactions.</li></ul>
+<h2>Key terms</h2>
+<p>Elemental calcium, calcium carbonate and calcium citrate.</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>A product’s compound weight can differ from its elemental calcium content. Use calcium per serving when estimating total intake.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>Calcium needs and supplementation depend on diet, age and health. The article’s fixed absorption percentages and calcium-to-magnesium ratio are not verified as general rules.</p></li></ul></div>
+<h2>Sources</h2>
+<p>Hello Yishi, Chuck Huang, reviewed by Dr. Chen, updated 8 February 2023. Cross-checked with the NIH Office of Dietary Supplements (ODS).</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_鈣質與補充品.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_鈣質與補充品.md">Markdown ↗</a>
+      <a href="https://helloyishi.com.tw/drugs-supplement/calcium/" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/" target="_blank" rel="noopener"><span lang="zh-Hant">查核來源 ↗</span><span lang="en">Verification source ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#calcium-supplements" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#calcium-supplements" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="anemia-causes" aria-labelledby="title-anemia-causes">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">血液內科</span><span lang="en">Hematology</span></span>
+    <h1 id="title-anemia-causes" tabindex="-1"><span lang="zh-Hant">貧血的原因與血液檢驗</span><span lang="en">Causes of anemia and blood tests</span></h1>
+    <p><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>疲倦與易喘可能出現在貧血<br>血液檢驗可確認血紅素是否偏低，後續則需釐清成因<br></p>
+<h2>科別</h2>
+<p>血液內科</p>
+<h2>常見疾病</h2>
+<p>缺鐵性貧血、地中海貧血、溶血性貧血<br></p>
+<h2>疾病如何診斷</h2>
+<p>全血球計數（CBC）中的血紅素低於適用參考值，是辨識貧血的主要依據<br>平均紅血球容積（MCV）可協助分類，醫師再依病史與初步結果選擇鐵蛋白、網狀紅血球等檢驗，追查缺鐵、失血或其他原因<br><a href="https://www.nhlbi.nih.gov/health/anemia/diagnosis" target="_blank" rel="noopener">NHLBI 貧血診斷 ↗</a></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>貧血通常需回診確認血紅素是否恢復，長期安排取決於成因<br>若有持續失血、慢性病或貧血復發，需繼續評估並追蹤<br><a href="https://www.nhlbi.nih.gov/health/anemia/treatment" target="_blank" rel="noopener">NHLBI 貧血治療與管理 ↗</a></p></div>
+<h2>影響族群</h2>
+<p>有慢性失血、營養缺乏或遺傳性血液疾病的人，以及孕婦和高齡者<br></p>
+<h2>文章重點</h2>
+<ul><li>症狀有重疊<br>疲倦、蒼白與易喘都是可能表現，也可能沒有明顯症狀<br>症狀本身無法判定類型<br></li><li>追查紅血球減少的原因<br>貧血可來自紅血球生成不足、失血或紅血球破壞增加<br>缺鐵只是其中一種原因<br></li><li>血紅素和 MCV 的用途<br>全血球計數提供血紅素與平均紅血球容積<br>血紅素用於辨識貧血，MCV 反映紅血球大小，可協助分類<br></li><li>補鐵前先釐清原因<br>補鐵適用於缺鐵等特定情況<br>若懷疑慢性失血，後續評估也要找出失血來源<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>anemia（貧血）、CBC（全血球計數）、Hb（血紅素）、MCV（平均紅血球容積）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>原文把低 MCV 或紅血球數量偏低也視為可單獨判定貧血<br>筆記依 NHLBI 將血紅素與分類線索分開<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>不同成因需要不同處理<br>補鐵與追查失血各有用途，可能需要同時進行<br></p></li></ul></div>
+<h2>來源</h2>
+<p>康健，林雨蒨，2024-12-16 更新<br>以美國國家心肺血液研究所（NHLBI）的貧血資料查核<br></p>
+    </section>
+    <section lang="en">
+<p>Fatigue and shortness of breath can occur with anemia. Blood tests identify low hemoglobin and help guide the search for its cause.</p>
+<h2>Specialty</h2>
+<p>Hematology</p>
+<h2>Related conditions</h2>
+<p>Iron deficiency anemia, thalassemia and hemolytic anemia.</p>
+<h2>Diagnosis</h2>
+<p>Low hemoglobin on a complete blood count (CBC), interpreted against the applicable reference range, is a main indicator of anemia. Mean corpuscular volume (MCV) helps classify it. History and initial results guide tests such as ferritin or reticulocyte counts to investigate iron deficiency, blood loss or other causes.<br><a href="https://www.nhlbi.nih.gov/health/anemia/diagnosis" target="_blank" rel="noopener">NHLBI anemia diagnosis ↗</a></p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Anemia usually calls for reassessment to check hemoglobin recovery. Longer-term monitoring depends on the cause, particularly if blood loss continues, chronic disease is present or anemia recurs.<br><a href="https://www.nhlbi.nih.gov/health/anemia/treatment" target="_blank" rel="noopener">NHLBI anemia treatment and management ↗</a></p></div>
+<h2>Population</h2>
+<p>People with chronic blood loss, nutrient deficiencies or inherited blood disorders, as well as pregnant people and older adults.</p>
+<h2>Key points</h2>
+<ul><li>Symptoms overlap. Fatigue, pallor and shortness of breath can occur, and some people have no obvious symptoms. Symptoms alone cannot identify the type.</li><li>Investigating the cause. Anemia can result from reduced red blood cell production, blood loss or increased destruction. Iron deficiency is one possible cause.</li><li>Hemoglobin and MCV. A complete blood count reports hemoglobin and mean corpuscular volume. Hemoglobin helps identify anemia, while MCV describes cell size and helps classify it.</li><li>Identify the cause before taking iron. Iron replacement applies when iron deficiency is present. Suspected chronic blood loss also calls for investigating its source.</li></ul>
+<h2>Key terms</h2>
+<p>Anemia, CBC (complete blood count), Hb (hemoglobin) and MCV (mean corpuscular volume).</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>The article treats low MCV or a low red cell count as independently diagnostic. These notes distinguish hemoglobin from clues used to classify anemia.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>Treatment depends on the cause. Iron replacement and investigation for bleeding address different questions and may both be needed.</p></li></ul></div>
+<h2>Sources</h2>
+<p>CommonHealth, Lin Yu-chien, updated 16 December 2024. Cross-checked with the National Heart, Lung, and Blood Institute (NHLBI).</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_貧血原因與檢驗.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_貧血原因與檢驗.md">Markdown ↗</a>
+      <a href="https://www.commonhealth.com.tw/article/86908" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://www.nhlbi.nih.gov/health/anemia" target="_blank" rel="noopener"><span lang="zh-Hant">查核來源 ↗</span><span lang="en">Verification source ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#anemia-causes" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#anemia-causes" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="dietary-iron" aria-labelledby="title-dietary-iron">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">營養學</span><span lang="en">Nutrition</span></span>
+    <h1 id="title-dietary-iron" tabindex="-1"><span lang="zh-Hant">膳食鐵的來源與吸收</span><span lang="en">Sources and absorption of dietary iron</span></h1>
+    <p><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>食物中的鐵可分為血基質鐵與非血基質鐵<br>比較食物時，可以同時看含量、實際食用份量與餐食搭配<br></p>
+<h2>科別</h2>
+<p>營養學</p>
+<h2>常見疾病</h2>
+<p>缺鐵、缺鐵性貧血<br></p>
+<h2>疾病如何診斷</h2>
+<p>疑似缺鐵時，醫師可用血清鐵蛋白評估鐵儲存，並以全血球計數和血紅素確認是否合併貧血<br>有發炎時，鐵蛋白可能偏高，醫師會結合其他鐵質檢驗和臨床情況判讀<br><a href="https://www.nhlbi.nih.gov/health/anemia/iron-deficiency-anemia" target="_blank" rel="noopener">NHLBI 缺鐵性貧血診斷 ↗</a> · <a href="https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/" target="_blank" rel="noopener">NIH 鐵質資料 ↗</a></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>單純調整食物來源通常不需固定回診<br>確診缺鐵性貧血者應複評治療反應，若缺鐵反覆或持續失血，需追蹤血球數值與成因<br><a href="https://www.bsg.org.uk/clinical-resource/guidelines-iron-deficiency-anaemia-in-adults" target="_blank" rel="noopener">BSG 成人缺鐵性貧血指引 ↗</a></p></div>
+<h2>影響族群</h2>
+<p>有月經者、孕婦、經常捐血者，以及主要由植物性食物取得鐵質的人<br></p>
+<h2>文章重點</h2>
+<ul><li>認識兩類膳食鐵<br>肉類與海鮮可提供血基質鐵，豆類與強化穀物可提供非血基質鐵<br>前者一般較易吸收<br></li><li>用實際份量比較<br>原文以每 100 公克列出含鐵食物<br>海藻、種子與豆類的常用份量不同，單看每 100 公克的排名容易忽略這點<br></li><li>搭配維生素 C<br>維生素 C 有助於吸收非血基質鐵<br>含鐵的植物性食物可搭配芭樂、柑橘或其他富含維生素 C 的食材<br></li><li>區分日常攝取與補充<br>鐵需求會隨年齡及生理狀況變化<br>是否需要鐵劑應依缺鐵狀況與臨床評估決定<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>heme iron（血基質鐵）、nonheme iron（非血基質鐵）、bioavailability（生體可用率）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>了解實際食用份量，比只看食物排行榜更能估算一餐提供多少鐵<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>餐食搭配會影響鐵吸收<br>原文建議茶、咖啡及牛奶統一間隔 1 至 2 小時，是否適用於所有情況（待確認）<br></p></li></ul></div>
+<h2>來源</h2>
+<p>Hello 醫師，吳承諦，2024-11-19 更新<br>以 NIH 膳食補充品辦公室（ODS）鐵質資料查核<br></p>
+    </section>
+    <section lang="en">
+<p>Foods provide heme and nonheme iron. Compare iron content, usual serving sizes and what else is eaten at the meal.</p>
+<h2>Specialty</h2>
+<p>Nutrition</p>
+<h2>Related conditions</h2>
+<p>Iron deficiency and iron deficiency anemia.</p>
+<h2>Diagnosis</h2>
+<p>Clinicians can check serum ferritin to assess iron stores and use a complete blood count and hemoglobin to see whether anemia is present. Inflammation can raise ferritin, so clinicians interpret it alongside other iron tests and the clinical context.<br><a href="https://www.nhlbi.nih.gov/health/anemia/iron-deficiency-anemia" target="_blank" rel="noopener">NHLBI iron-deficiency anemia diagnosis ↗</a> · <a href="https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/" target="_blank" rel="noopener">NIH iron fact sheet ↗</a></p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Changing dietary iron sources alone usually does not require scheduled follow-up. Confirmed iron-deficiency anemia warrants review of treatment response. Recurring deficiency or ongoing blood loss calls for monitoring and evaluation of the cause.<br><a href="https://www.bsg.org.uk/clinical-resource/guidelines-iron-deficiency-anaemia-in-adults" target="_blank" rel="noopener">BSG adult iron-deficiency anemia guideline ↗</a></p></div>
+<h2>Population</h2>
+<p>People who menstruate, pregnant people, frequent blood donors and people who get most of their iron from plant foods.</p>
+<h2>Key points</h2>
+<ul><li>Two forms of dietary iron. Meat and seafood can provide heme iron, while legumes and fortified grains provide nonheme iron. Heme iron is generally more bioavailable.</li><li>Compare usual servings. The article ranks foods per 100 grams. Typical servings of seaweed, seeds and legumes differ, so the ranking does not directly reflect meal intake.</li><li>Pair with vitamin C. Vitamin C improves nonheme iron absorption. Plant sources of iron can be paired with guava, citrus or other foods rich in vitamin C.</li><li>Diet and supplements. Iron needs vary by age and physiological status. The need for supplements depends on iron status and clinical assessment.</li></ul>
+<h2>Key terms</h2>
+<p>Heme iron, nonheme iron and bioavailability.</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>A usual serving size gives a better estimate of iron per meal than a ranking alone.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>Meal composition affects iron absorption. Whether the article’s suggested one-to-two-hour interval for tea, coffee and milk applies to all situations remains unconfirmed.</p></li></ul></div>
+<h2>Sources</h2>
+<p>Hello Yishi, Wu Cheng-ti, updated 19 November 2024. Cross-checked with the NIH Office of Dietary Supplements (ODS).</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_膳食鐵與吸收.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_膳食鐵與吸收.md">Markdown ↗</a>
+      <a href="https://helloyishi.com.tw/healthy-eating/nutrition/iron/" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/" target="_blank" rel="noopener"><span lang="zh-Hant">查核來源 ↗</span><span lang="en">Verification source ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#dietary-iron" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#dietary-iron" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="a1c-diabetes" aria-labelledby="title-a1c-diabetes">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">內分泌新陳代謝科</span><span lang="en">Endocrinology</span></span>
+    <h1 id="title-a1c-diabetes" tabindex="-1"><span lang="zh-Hant">糖化血色素與糖尿病診斷</span><span lang="en">A1C and diabetes diagnosis</span></h1>
+    <p><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>糖化血色素反映約三個月的平均血糖<br>筆記整理診斷門檻、複檢和檢驗限制<br></p>
+<h2>科別</h2>
+<p>內分泌新陳代謝科</p>
+<h2>常見疾病</h2>
+<p>糖尿病前期及第 2 型糖尿病<br></p>
+<h2>疾病如何診斷</h2>
+<p>非懷孕成人的糖尿病診斷門檻包括 A1C ≥6.5%、空腹血漿葡萄糖 ≥126 mg/dL，或口服葡萄糖耐受試驗兩小時血漿葡萄糖 ≥200 mg/dL<br>沒有明確高血糖時，通常需要另一項異常結果確認<br></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>確診糖尿病需長期追蹤<br>ADA 建議血糖狀況至少每年評估兩次，若未達目標或近期調整治療，可約每三個月評估一次<br><a href="https://diabetesjournals.org/care/article/49/Supplement_1/S132/163927/6-Glycemic-Goals-Hypoglycemia-and-Hyperglycemic" target="_blank" rel="noopener">ADA 血糖管理指引 ↗</a></p></div>
+<h2>影響族群</h2>
+<p>血糖檢驗異常者，以及有糖尿病家族史或曾有妊娠糖尿病的成人<br></p>
+<h2>文章重點</h2>
+<ul><li>A1C 反映的時間<br>A1C 反映過去約三個月的平均血糖，檢驗通常無須空腹<br></li><li>讀懂診斷範圍<br>非懷孕成人的 A1C 5.7% 至 6.4% 屬糖尿病前期，達 6.5% 進入糖尿病診斷範圍<br>沒有明確高血糖時通常須確認<br></li><li>辨認檢驗干擾<br>部分貧血、血紅素變異與懷孕可能影響 A1C 的判讀<br>醫師可依情況選擇血漿葡萄糖檢驗<br></li><li>區分診斷與追蹤<br>診斷門檻用於判定是否符合糖尿病標準<br>確診後的控制目標與追蹤頻率依個人情況調整<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>HbA1c（糖化血色素）、FPG（空腹血漿葡萄糖）、OGTT（口服葡萄糖耐受試驗）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>不同檢驗反映不同時間的血糖<br>一般餐後血糖和標準化的口服葡萄糖耐受試驗是不同量測<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>原文部分段落寫高於 6.5%，NIDDK 的門檻包含 6.5%<br>原文的平均血糖換算式是否適用於個別情況（待確認）<br></p></li></ul></div>
+<h2>來源</h2>
+<p>康健，陳蔚承，2024-10-14 更新<br>診斷門檻依美國 NIDDK 資料查核<br></p>
+    </section>
+    <section lang="en">
+<p>A1C reflects average glucose over roughly three months. These notes cover diagnostic thresholds, confirmation and test limitations.</p>
+<h2>Specialty</h2>
+<p>Endocrinology</p>
+<h2>Related conditions</h2>
+<p>Prediabetes and type 2 diabetes.</p>
+<h2>Diagnosis</h2>
+<p>In nonpregnant adults, diabetes thresholds include A1C ≥6.5%, fasting plasma glucose ≥126 mg/dL, or two-hour plasma glucose ≥200 mg/dL on an oral glucose tolerance test. Without unequivocal hyperglycemia, confirmation generally requires another abnormal result.</p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Diabetes requires ongoing follow-up. The ADA advises glycemic assessment at least twice a year, or about every three months when targets are not met or treatment has recently changed.<br><a href="https://diabetesjournals.org/care/article/49/Supplement_1/S132/163927/6-Glycemic-Goals-Hypoglycemia-and-Hyperglycemic" target="_blank" rel="noopener">ADA glycemic management standards ↗</a></p></div>
+<h2>Population</h2>
+<p>Adults with abnormal glucose tests, a family history of diabetes or previous gestational diabetes.</p>
+<h2>Key points</h2>
+<ul><li>What A1C measures. A1C reflects average blood glucose over about three months and generally does not require fasting.</li><li>Interpret the diagnostic ranges. For nonpregnant adults, A1C of 5.7% to 6.4% is in the prediabetes range. The diabetes range starts at 6.5%, with confirmation generally needed in the absence of unequivocal hyperglycemia.</li><li>Recognize test limitations. Some anemias, hemoglobin variants and pregnancy can affect A1C interpretation. Clinicians may use plasma glucose testing when appropriate.</li><li>Separate diagnosis from monitoring. Diagnostic thresholds establish whether criteria are met. After diagnosis, targets and monitoring intervals are individualized.</li></ul>
+<h2>Key terms</h2>
+<p>HbA1c (glycated hemoglobin), FPG (fasting plasma glucose), OGTT (oral glucose tolerance test).</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>Tests reflect glucose over different time frames. An ordinary post-meal reading differs from a standardized oral glucose tolerance test.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>Some passages say above 6.5%, while the NIDDK threshold includes 6.5%. How well the article’s glucose conversion formula applies to an individual remains unconfirmed.</p></li></ul></div>
+<h2>Sources</h2>
+<p>CommonHealth, Chen Wei-cheng, updated 14 October 2024. Diagnostic thresholds checked against NIDDK.</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_糖化血色素與糖尿病診斷.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_糖化血色素與糖尿病診斷.md">Markdown ↗</a>
+      <a href="https://www.commonhealth.com.tw/article/84370" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis" target="_blank" rel="noopener"><span lang="zh-Hant">查核來源 ↗</span><span lang="en">Verification source ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#a1c-diabetes" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#a1c-diabetes" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="fatty-liver-diagnosis" aria-labelledby="title-fatty-liver-diagnosis">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">胃腸肝膽科</span><span lang="en">Gastroenterology</span></span>
+    <h1 id="title-fatty-liver-diagnosis" tabindex="-1"><span lang="zh-Hant">脂肪肝檢查與纖維化評估</span><span lang="en">Fatty liver testing and fibrosis assessment</span></h1>
+    <p><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>超音波可發現肝內脂肪堆積<br>進一步評估時，肝纖維化風險要用其他工具判讀<br></p>
+<h2>科別</h2>
+<p>胃腸肝膽科</p>
+<h2>常見疾病</h2>
+<p>代謝功能障礙相關脂肪肝病（MASLD）、脂肪肝炎（MASH）、肝纖維化<br></p>
+<h2>疾病如何診斷</h2>
+<p>醫師結合病史、抽血和影像確認脂肪堆積、代謝風險與其他可能原因<br>FIB-4 或彈性檢查可協助評估進階纖維化風險，部分情況才需要肝切片<br></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>代謝性脂肪肝通常需要追蹤代謝狀況與肝纖維化風險<br>醫師依 FIB-4、糖尿病等風險因素及後續檢查結果決定複評或轉診時機<br><a href="https://www.aasld.org/liver-fellow-network/core-series/clinical-pearls/spare-me-jab-noninvasive-assessment-patients-masld" target="_blank" rel="noopener">AASLD 脂肪肝風險評估 ↗</a></p></div>
+<h2>影響族群</h2>
+<p>有第 2 型糖尿病、肥胖或其他代謝風險的成人，以及影像發現肝脂肪堆積者<br></p>
+<h2>文章重點</h2>
+<ul><li>早期可能沒有症狀<br>脂肪肝常由影像或健康檢查發現<br>症狀多寡無法代表肝損傷程度<br></li><li>影像先看脂肪堆積<br>一般超音波可顯示肝脂肪堆積<br>一般影像不足以確認是否有脂肪肝炎<br></li><li>另外評估纖維化<br>FIB-4 利用年齡與常規抽血資料估計風險<br>彈性檢查可量測肝臟硬度，提供進一步資訊<br></li><li>追蹤要看整體風險<br>原文討論體重與活動量<br>追蹤時也要考量糖尿病、其他代謝風險和纖維化評估結果<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>steatosis（脂肪堆積）、MASLD、MASH、FIB-4、elastography（彈性檢查）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>同樣是超音波發現脂肪肝，個別患者的纖維化風險可以不同<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>辨識纖維化風險有助安排下一步檢查<br>原文台灣盛行率與進展比例能否套用到不同族群（待確認）<br></p></li></ul></div>
+<h2>來源</h2>
+<p>Hello 醫師，周士閔，賴建翰醫師審稿，2023-07-06 更新<br>檢查用途依 NIDDK 查核<br></p>
+    </section>
+    <section lang="en">
+<p>Ultrasound can reveal fat in the liver. Fibrosis risk is assessed with additional tools.</p>
+<h2>Specialty</h2>
+<p>Gastroenterology</p>
+<h2>Related conditions</h2>
+<p>Metabolic dysfunction-associated steatotic liver disease (MASLD), steatohepatitis (MASH), and liver fibrosis.</p>
+<h2>Diagnosis</h2>
+<p>Clinicians combine history, blood tests and imaging to assess steatosis, metabolic risk and other possible causes. FIB-4 or elastography can help assess advanced fibrosis risk. Selected cases may need a biopsy.</p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Metabolic fatty liver disease usually warrants follow-up of metabolic health and fibrosis risk. FIB-4, risk factors such as diabetes, and any additional test results guide reassessment or referral.<br><a href="https://www.aasld.org/liver-fellow-network/core-series/clinical-pearls/spare-me-jab-noninvasive-assessment-patients-masld" target="_blank" rel="noopener">AASLD fatty liver risk assessment ↗</a></p></div>
+<h2>Population</h2>
+<p>Adults with type 2 diabetes, obesity or other metabolic risk factors, and people with liver fat detected on imaging.</p>
+<h2>Key points</h2>
+<ul><li>Early disease can be silent. Fatty liver is often found on imaging or during a health check. Symptoms do not reliably indicate the extent of liver injury.</li><li>Imaging can detect steatosis. Routine ultrasound can show liver fat. Routine imaging alone cannot establish whether steatohepatitis is present.</li><li>Assess fibrosis separately. FIB-4 estimates risk using age and routine blood tests. Elastography measures liver stiffness and can add information.</li><li>Follow the overall risk. The article discusses weight and physical activity. Follow-up also considers diabetes, other metabolic risks and findings from fibrosis assessment.</li></ul>
+<h2>Key terms</h2>
+<p>Steatosis, MASLD, MASH, FIB-4 and elastography.</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>People with similar ultrasound findings can have different fibrosis risks.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>Identifying fibrosis risk helps guide further assessment. The applicability of the article’s prevalence and progression estimates across populations remains unconfirmed.</p></li></ul></div>
+<h2>Sources</h2>
+<p>Hello Yishi, Chou Shih-min, reviewed by Dr. Lai, updated 6 July 2023. Test interpretation checked against NIDDK.</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_脂肪肝與纖維化評估.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_脂肪肝與纖維化評估.md">Markdown ↗</a>
+      <a href="https://helloyishi.com.tw/stomach/liver-diseases/reverse-fatty-liver-by-weight-loss/" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/diagnosis" target="_blank" rel="noopener"><span lang="zh-Hant">查核來源 ↗</span><span lang="en">Verification source ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#fatty-liver-diagnosis" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#fatty-liver-diagnosis" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="obstructive-sleep-apnea" aria-labelledby="title-obstructive-sleep-apnea">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">胸腔內科與睡眠醫學</span><span lang="en">Pulmonology and sleep medicine</span></span>
+    <h1 id="title-obstructive-sleep-apnea" tabindex="-1"><span lang="zh-Hant">阻塞性睡眠呼吸中止症的檢查與追蹤</span><span lang="en">Testing and follow-up for obstructive sleep apnea</span></h1>
+    <p><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>睡眠時呼吸道反覆阻塞，可能造成夜間喘醒和白天嗜睡<br>睡眠檢查可確認呼吸事件<br></p>
+<h2>科別</h2>
+<p>胸腔內科與睡眠醫學</p>
+<h2>常見疾病</h2>
+<p>阻塞性睡眠呼吸中止症（OSA）<br></p>
+<h2>疾病如何診斷</h2>
+<p>醫師先評估睡眠病史，再以睡眠多項生理檢查（PSG）確認<br>部分無複雜共病的高風險成人可做居家檢查<br>若居家結果陰性、不確定或品質不足，應進一步做 PSG<br></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>通常需要定期追蹤症狀與治療成效<br>使用陽壓呼吸器且症狀穩定時，通常無須例行重做睡眠檢查<br>症狀持續或復發時可再評估<br></p></div>
+<h2>影響族群</h2>
+<p>有明顯打鼾、被目擊呼吸暫停或白天嗜睡的成人，包括有肥胖或上呼吸道狹窄等風險者<br></p>
+<h2>文章重點</h2>
+<ul><li>辨認夜間與日間線索<br>夜間可能出現呼吸暫停與喘醒，白天則可能嗜睡或注意力下降<br></li><li>客觀檢查記錄呼吸事件<br>睡眠檢查可記錄氣流、血氧等資料<br>AHI 表示每小時睡眠中的呼吸中止與低通氣事件數<br></li><li>結合數值與臨床條件<br>成人 AHI 5 至未滿 15 通常還要結合相關症狀或共病判讀<br>原文將 AHI ≥5 單獨視為診斷門檻，筆記補上適用條件<br></li><li>治療後追蹤效果<br>追蹤可檢視嗜睡改善程度，以及陽壓呼吸器的使用與療效<br>複檢依症狀與治療方式安排<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>OSA（阻塞性睡眠呼吸中止症）、PSG（睡眠多項生理檢查）、AHI（呼吸中止低通氣指數）、PAP（陽壓呼吸治療）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>打鼾和白天疲倦可能提示睡眠呼吸障礙，診斷仍需客觀檢查<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>檢查分級和日常症狀都會影響治療與追蹤<br></p></li></ul></div>
+<h2>來源</h2>
+<p>康健，張智銘，2026-04-01<br>診斷及追蹤依 AASM 指引查核<br></p>
+    </section>
+    <section lang="en">
+<p>Repeated airway obstruction during sleep can cause gasping and daytime sleepiness. Sleep testing documents breathing events.</p>
+<h2>Specialty</h2>
+<p>Pulmonology and sleep medicine</p>
+<h2>Related conditions</h2>
+<p>Obstructive sleep apnea (OSA).</p>
+<h2>Diagnosis</h2>
+<p>Clinicians assess sleep history and use polysomnography (PSG) to confirm OSA. Home testing can be used in selected high-risk adults without complicating conditions. A negative, inconclusive or technically inadequate home test calls for PSG.</p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Periodic follow-up usually reviews symptoms and treatment response. Routine repeat testing is generally unnecessary when symptoms are controlled on positive airway pressure. Persistent or recurrent symptoms may warrant reassessment.</p></div>
+<h2>Population</h2>
+<p>Adults with loud snoring, witnessed breathing pauses or daytime sleepiness, including people with obesity or a narrow upper airway.</p>
+<h2>Key points</h2>
+<ul><li>Recognize nighttime and daytime clues. Breathing pauses and gasping can occur at night, with sleepiness or reduced attention during the day.</li><li>Document breathing events. Sleep studies record signals such as airflow and oxygen saturation. AHI counts apneas and hypopneas per hour of sleep.</li><li>Interpret AHI in context. In adults, an AHI of 5 to below 15 generally requires compatible symptoms or comorbidities. The article’s cutoff of 5 alone omits this context.</li><li>Review treatment response. Follow-up can review sleepiness, device use and treatment effectiveness. Repeat testing depends on symptoms and the treatment used.</li></ul>
+<h2>Key terms</h2>
+<p>OSA (obstructive sleep apnea), PSG (polysomnography), AHI (apnea–hypopnea index), PAP (positive airway pressure).</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>Snoring and daytime fatigue can raise suspicion of a sleep-related breathing disorder. Objective testing establishes the diagnosis.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>Study findings and day-to-day symptoms both inform treatment and follow-up.</p></li></ul></div>
+<h2>Sources</h2>
+<p>CommonHealth, Chang Chih-ming, 1 April 2026. Diagnosis and follow-up checked against AASM guidance.</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_阻塞性睡眠呼吸中止症.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_阻塞性睡眠呼吸中止症.md">Markdown ↗</a>
+      <a href="https://www.commonhealth.com.tw/article/93845" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5337595/" target="_blank" rel="noopener"><span lang="zh-Hant">診斷查核 ↗</span><span lang="en">Diagnosis reference ↗</span></a>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/33704050/" target="_blank" rel="noopener"><span lang="zh-Hant">追蹤查核 ↗</span><span lang="en">Follow-up reference ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#obstructive-sleep-apnea" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#obstructive-sleep-apnea" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="hyperthyroidism" aria-labelledby="title-hyperthyroidism">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">內分泌新陳代謝科</span><span lang="en">Endocrinology</span></span>
+    <h1 id="title-hyperthyroidism" tabindex="-1"><span lang="zh-Hant">甲狀腺機能亢進的診斷與追蹤</span><span lang="en">Diagnosis and follow-up of hyperthyroidism</span></h1>
+    <p><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>心悸、手抖和體重下降可見於甲狀腺機能亢進<br>抽血確認荷爾蒙變化後，再追查病因<br></p>
+<h2>科別</h2>
+<p>內分泌新陳代謝科</p>
+<h2>常見疾病</h2>
+<p>甲狀腺機能亢進、格雷氏病、毒性甲狀腺結節<br></p>
+<h2>疾病如何診斷</h2>
+<p>醫師依症狀與病史安排抽血<br>原發性顯性甲狀腺機能亢進通常是 TSH 偏低，游離 T4 或 T3 升高<br>再依情況用 TSH 受體抗體或甲狀腺攝取掃描釐清原因<br></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>通常需要<br>治療期間定期抽血看甲狀腺功能，停用抗甲狀腺藥後仍要留意復發<br>接受放射性碘或手術者也需監測甲狀腺功能低下<br></p></div>
+<h2>影響族群</h2>
+<p>有心悸、手抖、怕熱或不明原因體重下降的成人，以及有甲狀腺疾病家族史者<br></p>
+<h2>文章重點</h2>
+<ul><li>症狀提供線索<br>心悸、手抖、怕熱與體重下降也可能出現在其他疾病<br>需搭配抽血判讀<br></li><li>合看甲狀腺功能數值<br>TSH 偏低時，游離 T4 和 T3 可協助區分顯性與亞臨床甲狀腺機能亢進<br></li><li>依成因選擇治療<br>格雷氏病、毒性結節及甲狀腺炎都可能造成甲狀腺毒症<br>原因不同，處理方式也不同<br></li><li>治療後持續抽血<br>複檢可辨識復發或治療後的甲狀腺低下<br>檢查間隔依治療方式與結果調整<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>TSH（促甲狀腺激素）、FT4（游離甲狀腺素）、T3（三碘甲狀腺素）、TRAb（TSH 受體抗體）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>症狀和甲狀腺功能數值各自提供線索，兩者合看才能決定後續檢查<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>治療後症狀改善仍需抽血追蹤<br>原文列出的固定術後復發率能否適用於各種手術方式（待確認）<br></p></li></ul></div>
+<h2>來源</h2>
+<p>Hello 醫師，Jenny Hung，賴建翰醫師審稿，2021-01-29 更新<br>以 NIDDK 與 NICE 資料查核<br></p>
+    </section>
+    <section lang="en">
+<p>Palpitations, tremor and weight loss can occur in hyperthyroidism. Blood tests establish the hormone pattern and guide investigation of the cause.</p>
+<h2>Specialty</h2>
+<p>Endocrinology</p>
+<h2>Related conditions</h2>
+<p>Hyperthyroidism, Graves’ disease and toxic thyroid nodules.</p>
+<h2>Diagnosis</h2>
+<p>Blood testing follows clinical assessment. Overt primary hyperthyroidism usually shows low TSH and elevated free T4 or T3. TSH receptor antibodies or a thyroid uptake scan may help determine the cause.</p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Follow-up is generally needed. Thyroid blood tests monitor treatment, and testing after stopping antithyroid drugs helps detect relapse. After radioiodine or surgery, monitoring can detect hypothyroidism.</p></div>
+<h2>Population</h2>
+<p>Adults with palpitations, tremor, heat intolerance or unexplained weight loss, and people with a family history of thyroid disease.</p>
+<h2>Key points</h2>
+<ul><li>Symptoms are clues. Palpitations, tremor, heat intolerance and weight loss overlap with other conditions. Blood tests clarify thyroid function.</li><li>Read thyroid tests together. When TSH is low, free T4 and T3 help distinguish overt from subclinical hyperthyroidism.</li><li>Treatment depends on the cause. Graves’ disease, toxic nodules and thyroiditis can all cause thyrotoxicosis. Management varies by cause.</li><li>Continue monitoring after treatment. Repeat tests can detect relapse or hypothyroidism after treatment. Testing intervals depend on the treatment and results.</li></ul>
+<h2>Key terms</h2>
+<p>TSH (thyroid-stimulating hormone), FT4 (free thyroxine), T3 (triiodothyronine), TRAb (TSH receptor antibodies).</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>Symptoms and thyroid hormone results provide different clues that guide further evaluation.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>Blood tests still matter after symptoms improve. Whether the article’s postoperative relapse estimate applies across procedures remains unconfirmed.</p></li></ul></div>
+<h2>Sources</h2>
+<p>Hello Yishi, Jenny Hung, reviewed by Dr. Lai, updated 29 January 2021. Checked against NIDDK and NICE guidance.</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_甲狀腺機能亢進.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_甲狀腺機能亢進.md">Markdown ↗</a>
+      <a href="https://helloyishi.com.tw/health/health-conditions/hyperthyroidism/" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://www.niddk.nih.gov/health-information/endocrine-diseases/hyperthyroidism" target="_blank" rel="noopener"><span lang="zh-Hant">診斷查核 ↗</span><span lang="en">Diagnosis reference ↗</span></a>
+      <a href="https://www.nice.org.uk/guidance/ng145/chapter/recommendations" target="_blank" rel="noopener"><span lang="zh-Hant">追蹤查核 ↗</span><span lang="en">Follow-up reference ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#hyperthyroidism" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#hyperthyroidism" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="vitamin-b12-nutrition" aria-labelledby="title-vitamin-b12-nutrition">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">營養學</span><span lang="en">Nutrition</span></span>
+    <h1 id="title-vitamin-b12-nutrition" tabindex="-1"><span lang="zh-Hant">素食飲食中的維生素 B12</span><span lang="en">Vitamin B12 in vegetarian diets</span></h1>
+    <p><span lang="zh-Hant">康健</span><span lang="en">CommonHealth</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>規劃素食飲食時，要確認維生素 B12 的來源<br>若出現疑似缺乏症狀，也要評估吸收問題<br></p>
+<h2>科別</h2>
+<p>營養學</p>
+<h2>常見疾病</h2>
+<p>維生素 B12 缺乏、巨球性貧血、相關神經病變<br></p>
+<h2>疾病如何診斷</h2>
+<p>醫師結合飲食、用藥、手術病史與症狀，通常先驗血清總 B12 或活性 B12<br>結果不明確時，可視情況加驗甲基丙二酸（MMA）<br></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>治療後需要複評<br>NICE 建議多數人約三個月後首次回診，症狀較重者可提前<br>長期追蹤與補充取決於成因能否改善<br></p></div>
+<h2>影響族群</h2>
+<p>全素者、高齡者、曾接受胃部手術或有吸收障礙者<br></p>
+<h2>文章重點</h2>
+<ul><li>辨認可靠來源<br>魚、肉、蛋與乳品含 B12<br>全素飲食可透過有標示添加 B12 的強化食品或補充品取得<br></li><li>看營養標示<br>營養酵母的 B12 含量依產品而異<br>要確認是否強化，並看每份含量<br></li><li>神經症狀也要留意<br>缺乏可能伴隨手腳麻木或步態不穩，即使沒有貧血也可能發生<br></li><li>區分攝取和吸收<br>飲食攝取不足和吸收障礙都可能造成缺乏<br>補充途徑與追蹤依成因及症狀而定<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>cobalamin（鈷胺素）、fortified food（強化食品）、MMA（甲基丙二酸）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>全素餐食可以事先規劃 B12 來源，營養酵母則要看產品是否添加<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>缺乏的成因會影響治療與追蹤<br>原文所列補充劑量能否適用於不同個案（待確認）<br></p></li></ul></div>
+<h2>來源</h2>
+<p>康健，謝佳君，2025-12-24<br>以 NIH ODS 與 NICE 資料查核<br></p>
+    </section>
+    <section lang="en">
+<p>Vegetarian meal planning includes identifying reliable vitamin B12 sources. Suspected deficiency also warrants consideration of absorption problems.</p>
+<h2>Specialty</h2>
+<p>Nutrition</p>
+<h2>Related conditions</h2>
+<p>Vitamin B12 deficiency, macrocytic anemia and related neuropathy.</p>
+<h2>Diagnosis</h2>
+<p>Clinicians review diet, medications, surgical history and symptoms. Initial testing usually measures total or active B12. Methylmalonic acid (MMA) can help clarify an uncertain result.</p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Follow-up after treatment checks response. NICE suggests an initial review at about three months for most people, or earlier with severe symptoms. Long-term monitoring and replacement depend on whether the cause can be corrected.</p></div>
+<h2>Population</h2>
+<p>People following vegan diets, older adults, and people with gastric surgery or malabsorption.</p>
+<h2>Key points</h2>
+<ul><li>Identify reliable sources. Fish, meat, eggs and dairy provide B12. Vegan diets can obtain it from foods fortified with B12 or supplements.</li><li>Read the label. B12 content varies among nutritional yeast products. Check whether the product is fortified and how much B12 it provides per serving.</li><li>Recognize neurological symptoms. Deficiency can cause numbness or gait problems, even without anemia.</li><li>Distinguish intake from absorption. Low intake and impaired absorption can both cause deficiency. The replacement route and follow-up depend on the cause and symptoms.</li></ul>
+<h2>Key terms</h2>
+<p>Cobalamin, fortified food and MMA (methylmalonic acid).</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>Vegan meal planning can account for B12 in advance. Nutritional yeast labels show whether B12 was added.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>The cause affects treatment and follow-up. Whether the article’s supplement doses apply across individual cases remains unconfirmed.</p></li></ul></div>
+<h2>Sources</h2>
+<p>CommonHealth, 24 December 2025. Checked against NIH ODS and NICE guidance.</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_維生素B12與素食.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_維生素B12與素食.md">Markdown ↗</a>
+      <a href="https://www.commonhealth.com.tw/article/93436" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://ods.od.nih.gov/factsheets/Vitaminb12-HealthProfessional/" target="_blank" rel="noopener"><span lang="zh-Hant">診斷查核 ↗</span><span lang="en">Diagnosis reference ↗</span></a>
+      <a href="https://www.nice.org.uk/guidance/ng239/chapter/Rationale-and-impact" target="_blank" rel="noopener"><span lang="zh-Hant">追蹤查核 ↗</span><span lang="en">Follow-up reference ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#vitamin-b12-nutrition" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#vitamin-b12-nutrition" lang="en">View slides ↗</a>
+  </p>
+</article>
+<article class="reader" id="bone-nutrition-menopause" aria-labelledby="title-bone-nutrition-menopause">
+  <a class="back" href="#articles">← <span lang="zh-Hant">返回文章列表</span><span lang="en">Back to articles</span></a>
+  <div class="reader-head">
+    <span class="tag"><span lang="zh-Hant">營養學</span><span lang="en">Nutrition</span></span>
+    <h1 id="title-bone-nutrition-menopause" tabindex="-1"><span lang="zh-Hant">更年期骨骼健康的鈣與維生素 D</span><span lang="en">Calcium and vitamin D for bone health after menopause</span></h1>
+    <p><span lang="zh-Hant">Hello 醫師</span><span lang="en">Hello Yishi</span> · <time datetime="2026-11-10">2026.11.10</time></p>
+  </div>
+  <div class="note">
+    <section lang="zh-Hant">
+<p>鈣與維生素 D 都與骨骼健康有關<br>整理日常食物來源，以及何時需要評估骨密度與骨折風險<br></p>
+<h2>科別</h2>
+<p>營養學</p>
+<h2>常見疾病</h2>
+<p>停經後骨質疏鬆與脆弱性骨折<br></p>
+<h2>疾病如何診斷</h2>
+<p>停經後女性可用 DXA 測量髖部或腰椎骨密度，適用部位 T 值 ≤ −2.5 符合診斷條件<br>低創傷髖部或椎體骨折也可作為診斷依據<br></p>
+<div class="diagnosis-followup"><h3>是否需要長期回診</h3><p>確診骨質疏鬆通常需要持續追蹤骨折風險與治療反應<br>BHOF 建議開始或更換骨鬆藥物後約一至兩年評估骨密度，之後依風險調整<br></p></div>
+<h2>影響族群</h2>
+<p>停經後女性，尤其是年齡較高或曾有低創傷骨折者<br></p>
+<h2>文章重點</h2>
+<ul><li>按食用份量算鈣質<br>乳品、帶骨小魚和部分深綠蔬菜可提供鈣<br>比較每百克數據時，也要換算實際吃的份量<br></li><li>從食物取得維生素 D<br>富含脂肪的魚、蛋黃和部分強化食品可提供維生素 D<br>維生素 D 有助腸道吸收鈣<br></li><li>分清營養與骨鬆評估<br>評估骨鬆要看骨密度與骨折病史<br>飲食攝取量可用來討論營養是否足夠<br></li><li>把營養納入骨折預防<br>飲食管理可與負重活動、防跌措施及有適應症時的骨鬆治療一起安排<br></li></ul>
+<h2>關鍵名詞</h2>
+<p>DXA（雙能量 X 光吸收儀）、BMD（骨密度）、T-score（T 值）、fragility fracture（脆弱性骨折）<br></p>
+<h2>討論</h2>
+<div class="discussion-topic"><ul><li><strong>為什麼要討論</strong><p>按一餐實際份量比較食物，更能估算鈣與維生素 D 的攝取<br></p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>為什麼重要</strong><p>骨折風險會影響追蹤與治療<br>原文的鈣和維生素 D 數字是否適用於個別年齡與地區（待確認）<br></p></li></ul></div>
+<h2>來源</h2>
+<p>Hello 醫師，連珮妤，蕭家駒醫師審稿，2025-06-11 更新<br>以 NIH ODS 與 BHOF 資料查核<br></p>
+    </section>
+    <section lang="en">
+<p>Calcium and vitamin D support bone health. These notes cover dietary sources and assessment of bone density and fracture risk.</p>
+<h2>Specialty</h2>
+<p>Nutrition</p>
+<h2>Related conditions</h2>
+<p>Postmenopausal osteoporosis and fragility fractures.</p>
+<h2>Diagnosis</h2>
+<p>In postmenopausal women, a DXA T-score of −2.5 or lower at an eligible hip or lumbar spine site meets a diagnostic criterion. A low-trauma hip or vertebral fracture can also establish osteoporosis.</p>
+<div class="diagnosis-followup"><h3>Long-term follow-up</h3><p>Diagnosed osteoporosis generally requires ongoing review of fracture risk and treatment response. BHOF advises bone density testing about one to two years after starting or changing medication, with later intervals guided by risk.</p></div>
+<h2>Population</h2>
+<p>Postmenopausal women, especially those of older age or with a previous low-trauma fracture.</p>
+<h2>Key points</h2>
+<ul><li>Compare calcium per serving. Dairy, fish eaten with their bones and some leafy greens provide calcium. Convert per-100-gram values to the serving actually eaten.</li><li>Identify vitamin D sources. Fatty fish, egg yolks and some fortified foods provide vitamin D, which helps the intestine absorb calcium.</li><li>Separate nutrition from assessment. Bone density and fracture history help assess osteoporosis. Dietary intake helps determine whether nutrition is adequate.</li><li>Include nutrition in fracture prevention. Nutrition can be combined with weight-bearing activity, fall prevention and osteoporosis treatment when indicated.</li></ul>
+<h2>Key terms</h2>
+<p>DXA (dual-energy X-ray absorptiometry), BMD (bone mineral density), T-score and fragility fracture.</p>
+<h2>Discussion</h2>
+<div class="discussion-topic"><ul><li><strong>Why discuss it</strong><p>Usual serving sizes give a more practical estimate of calcium and vitamin D intake.</p></li></ul></div>
+<div class="discussion-topic"><ul><li><strong>Why it matters</strong><p>Fracture risk informs follow-up and treatment. The applicability of the article’s intake figures to specific age groups and regions remains unconfirmed.</p></li></ul></div>
+<h2>Sources</h2>
+<p>Hello Yishi, reviewed by Dr. Hsiao, updated 11 June 2025. Checked against NIH ODS and BHOF guidance.</p>
+    </section>
+    <p class="downloads">
+      <a href="output/20261110_更年期骨骼營養.docx"><span lang="zh-Hant">Word 筆記 ↗</span><span lang="en">Word notes ↗</span></a>
+      <a href="output/【濃縮】20261110_更年期骨骼營養.md">Markdown ↗</a>
+      <a href="https://helloyishi.com.tw/musculoskeletal-diseases/osteoporosis/how-to-prevent-osteoporosis/" target="_blank" rel="noopener"><span lang="zh-Hant">原始來源 ↗</span><span lang="en">Original source ↗</span></a>
+      <a href="https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/" target="_blank" rel="noopener"><span lang="zh-Hant">診斷查核 ↗</span><span lang="en">Diagnosis reference ↗</span></a>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/9546973/" target="_blank" rel="noopener"><span lang="zh-Hant">追蹤查核 ↗</span><span lang="en">Follow-up reference ↗</span></a>
+    </p>
+  </div>
+  <p class="view-slides">
+    <a href="slides.html#bone-nutrition-menopause" lang="zh-Hant">檢視簡報 ↗</a>
+    <a href="slides.html?lang=en#bone-nutrition-menopause" lang="en">View slides ↗</a>
+  </p>
+</article>
+</main>
+<footer>
+  <span><span lang="zh-Hant">內科與營養學閱讀知識庫</span><span lang="en">Internal Medicine and Nutrition Knowledge Base</span> · 2026</span>
+</footer>
+</div>
+<script>
+const categoryNav = document.querySelector('.category-nav');
+const navigationLinks = categoryNav.querySelectorAll('a');
+for (const link of categoryNav.querySelectorAll('a[href^="#category-"]')) {
+  const heading = document.getElementById(link.hash.slice(1));
+  const articleLinks = heading.closest('.article-category').querySelectorAll('.read');
+  for (const articleLink of articleLinks) {
+    const reader = document.getElementById(articleLink.hash.slice(1));
+    reader.querySelector('.back').href = link.hash;
+  }
+}
+
+const languageButtons = document.querySelectorAll('.languages button');
+for (const button of languageButtons) {
+  button.addEventListener('click', () => {
+    document.body.dataset.language = button.id;
+    document.documentElement.lang = button.id === 'zh' ? 'zh-Hant' : 'en';
+    categoryNav.setAttribute('aria-label', button.id === 'zh' ? '主要導覽' : 'Main navigation');
+    for (const choice of languageButtons) {
+      choice.setAttribute('aria-pressed', String(choice === button));
+    }
+  });
+}
+
+let lastRead;
+function focusCurrentView() {
+  const reader = document.querySelector('.reader:target');
+  const category = document.querySelector('.article-category h2:target');
+  for (const link of navigationLinks) {
+    if (link.hash === (location.hash || '#articles')) {
+      link.setAttribute('aria-current', 'location');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  }
+  if (reader) {
+    lastRead = document.querySelector(`.read[href="#${reader.id}"]`);
+    reader.querySelector('h1').focus({ preventScroll: true });
+    window.scrollTo(0, 0);
+  } else {
+    if (location.hash === '#articles') {
+      document.getElementById('articles').focus();
+    } else if (lastRead && (!category || category.parentElement.contains(lastRead))) {
+      lastRead.focus();
+    } else if (category) {
+      category.focus();
+    }
+    lastRead = null;
+  }
+}
+window.addEventListener('hashchange', focusCurrentView);
+focusCurrentView();
+</script>
+</body>
+</html>
